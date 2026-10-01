@@ -1,6 +1,8 @@
 # 制度查询助手
 ### Trusted Enterprise Policy Agent
 
+[在线 Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html) · [Evaluation Report](docs/evaluation_report.md) · [PRD](docs/PRD.md)
+
 面向企业内部制度查询的可信 RAG 问答 Agent，重点解决“答案虽然正确，但来源噪声高、模型容易进行无依据业务推断”的问题。
 
 ![项目封面](docs/assets/cover.svg)
@@ -80,7 +82,9 @@ V1首次正式回归 → governance_invalid_json → 容器退出 → 核查解�
 
 ## 8. Demo
 
-先看[3–5分钟讲解脚本](demo/demo_script.md)。下载或clone后，直接打开 `demo/index.html`，无需Docker、API或公网服务，可查看真实B/V1.1实验只读回放、展开来源。GitHub不会直接渲染HTML，在线阅读请看截图：
+**[直接打开在线静态 Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html)**：GitHub Pages 托管已有截图与历史实验回放，不连接真实模型 API，也不部署 AnythingLLM 后端。
+
+先看[3–5分钟讲解脚本](demo/demo_script.md)。也可以下载或clone后打开 `demo/index.html`，查看真实B/V1.1实验只读回放、展开来源。以下为实际运行截图：
 
 ![V1.1正常查询：真实已保存会话](demo/screenshots/02_normal_query.jpg)
 

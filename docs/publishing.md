@@ -1,20 +1,32 @@
-# GitHub发布交接（尚未发布）
+# GitHub发布交接
 
-仓库名：`trusted-enterprise-policy-assistant`
+发布日期：2026-10-01。产品最终版为 V1.1；本次仅公开作品资料与现有静态 Demo。
 
-推荐description：
+- [公开仓库](https://github.com/3219896344y-jpg/trusted-enterprise-policy-assistant)
+- [在线静态 Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html)
+- [Pages 部署记录](https://github.com/3219896344y-jpg/trusted-enterprise-policy-assistant/actions)
+
+## 发布范围
+
+仅推送经过审计的 release-ready 精选仓库，未推送原私有开发仓库及其历史。公开分支为 main。GitHub Pages 从 main 根目录发布，使用 `.nojekyll` 保留静态资源，根目录 `index.html` 跳转到 `demo/index.html`。
+
+首次 Pages 构建 [36858291593](https://github.com/3219896344y-jpg/trusted-enterprise-policy-assistant/actions/runs/36858291593) 在提交 `335def52ea52f45a3132360380d1656a8fddd5df` 上成功，在线 Demo 匿名访问返回 HTTP 200 后，才加入 README 入口。最终发布提交可在仓库 main 历史中查看。
+
+没有部署 AnythingLLM 后端，没有连接模型 API，没有修改产品逻辑、实验输出、评分标准或冻结数据。Demo 是已保存结果的静态历史回放，保留失败、退化与待复核项，不能理解成实时问答或生产可靠性证明。
+
+## 仓库信息
+
+Description：
 
 > AI Product Portfolio | Trusted enterprise policy RAG agent with evidence governance, evaluation and bad-case driven iteration.
 
-推荐一句话：
+Topics：ai-product、rag、agent、llm、evaluation、anythingllm、deepseek、product-management。
 
-> 面向企业内部制度查询的可信RAG问答Agent，聚焦证据相关性与回答边界，并保留可复核的评测、失败和退化记录。
+## 可复核检查
 
-## 用户下一步
+- [公开审计快照](public_release_audit.md)
+- [公开内容及全部 Git 对象扫描脚本](../scripts/scan_public.py)
+- [链接、冻结资产与文件检查脚本](../scripts/verify_portfolio.py)
+- [公开评分复算脚本](../scripts/check_scores.py)
 
-1. 复核README、Demo和公开审计；确认愿意公开这些模拟数据、产品文档及实验结果。
-2. 在自己的GitHub账户创建同名空仓库，决定是否公开。不要额外初始化README或License，避免不必要的合并。
-3. 后续只把**本精选发布目录**连接到新remote并发布，不要连接私有开发目录；本轮没有执行push，也没有建立remote。
-4. 发布后打开GitHub README确认图片、Mermaid、相对链接，再将仓库链接放入简历。文件夹中的静态Demo须下载后打开，不能把GitHub代码预览页当成已部署网页。
-
-不需要继续开发、购买API、部署公网服务或等待所有争议评分裁决。当前披露已足以支持作品集展示，仍不能宣称生产可靠性或所有指标提高。
+公开包不包含运行目录、数据库、凭据或私有会话数据。发布后仍应避免把本机运行环境加入公开仓库。作品集保留合成制度、单次实验和单评审初标的结论边界。
