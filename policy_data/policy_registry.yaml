@@ -1,0 +1,159 @@
+# 模拟制度 / 演示数据；日期闭区间；null expiry表示无预设终止日。
+schema_version: "1.0"
+as_of_date: "2026-10-01"
+date_interval: "effective_date <= as_of_date <= expiry_date; null expiry is unbounded"
+policies:
+  - policy_id: "TRAVEL"
+    title: "员工境内差旅管理办法"
+    version: "2025"
+    effective_date: "2025-01-01"
+    expiry_date: "2025-12-31"
+    department: ["all"]
+    status: "expired"
+    owner: "行政部"
+    source_file: "policy_data/raw/TRAVEL_2025.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "9794f48bf82c8c2898074ab7758813ca1e26a9aba9960477dc6aa9e499226d86"
+  - policy_id: "TRAVEL"
+    title: "员工境内差旅管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "行政部"
+    source_file: "policy_data/raw/TRAVEL_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "87c2ae467ef466cb6eb0287775cbdfe2821f22332eae68e2e84199dede99cca1"
+  - policy_id: "EXPENSE"
+    title: "员工费用报销管理办法"
+    version: "2025"
+    effective_date: "2025-01-01"
+    expiry_date: "2025-12-31"
+    department: ["all"]
+    status: "expired"
+    owner: "财务部"
+    source_file: "policy_data/raw/EXPENSE_2025.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "1039cc5b26951708a0cd048cf0433de39037b29f1cb288843c45001f5e244537"
+  - policy_id: "EXPENSE"
+    title: "员工费用报销管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "财务部"
+    source_file: "policy_data/raw/EXPENSE_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "4bb0b5e22210c836e0d695cd625f758d194a167f28833a51c30fdfb0e2677e83"
+  - policy_id: "INVOICE"
+    title: "费用票据核验指引"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "财务部"
+    source_file: "policy_data/raw/INVOICE_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "e150d0749ec67e88b080ac53b263ea63214d5371cf24dde75c8cf0a36b9a0dd4"
+  - policy_id: "LEAVE"
+    title: "员工请假与证明材料管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "人力资源部"
+    source_file: "policy_data/raw/LEAVE_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "5309ea4357c974a5f55ec417bdec472c478ecd5e3f74fcf2ed043e7b849d2e77"
+  - policy_id: "TRAIN-PROD"
+    title: "生产部门岗位培训费用管理办法"
+    version: "2025"
+    effective_date: "2025-01-01"
+    expiry_date: "2025-12-31"
+    department: ["production"]
+    status: "expired"
+    owner: "人力资源部"
+    source_file: "policy_data/raw/TRAIN-PROD_2025.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "56b0decb7e86522d8ba36eea094668e8f342e053b2c99059e053dc5fcc351101"
+  - policy_id: "TRAIN-PROD"
+    title: "生产部门岗位培训费用管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["production"]
+    status: "active"
+    owner: "人力资源部"
+    source_file: "policy_data/raw/TRAIN-PROD_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "38990059a44628a5a1e043297072a6935ae2dcf186fbc141adbc53e6550fc369"
+  - policy_id: "TRAIN-FUNC"
+    title: "职能部门专业培训费用管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["functional"]
+    status: "active"
+    owner: "人力资源部"
+    source_file: "policy_data/raw/TRAIN-FUNC_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "9aa8a9f5457343dff2e5bacee6bb9010778f08a580b91706531bf7bc4f32cf1d"
+  - policy_id: "PURCHASE"
+    title: "采购需求与授权审批办法"
+    version: "2025"
+    effective_date: "2025-01-01"
+    expiry_date: "2025-12-31"
+    department: ["all"]
+    status: "expired"
+    owner: "采购部"
+    source_file: "policy_data/raw/PURCHASE_2025.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "0009a4d2b86680e08a75e6c35a22f06ab5f0c4b88d2ec3c41f3d67d65c690589"
+  - policy_id: "PURCHASE"
+    title: "采购需求与授权审批办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "采购部"
+    source_file: "policy_data/raw/PURCHASE_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "33506a16494f0057f052c3be1934360208ed762500c28fa245c10ce3f07a3534"
+  - policy_id: "ACCEPTANCE"
+    title: "采购验收与对公结算管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "采购部"
+    source_file: "policy_data/raw/ACCEPTANCE_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "f72320b965a4cfa06a38eecbbb9110b0fee157e2d2375f97b51fe3f7d606904f"
+  - policy_id: "VISITOR"
+    title: "商务访客预约与厂区接待管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "行政部"
+    source_file: "policy_data/raw/VISITOR_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "ff2db235220d7a44052a46e3f871e672281f9ba0a92210d58b846a98134dea72"
+  - policy_id: "CONTRACTOR"
+    title: "外协作业人员入场管理办法"
+    version: "2026"
+    effective_date: "2026-01-01"
+    expiry_date: null
+    department: ["all"]
+    status: "active"
+    owner: "行政部与安全管理部门"
+    source_file: "policy_data/raw/CONTRACTOR_2026.txt"
+    clause_ids: ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08"]
+    sha256: "0e26404ebaa1b9c66ef061e555f9ac5bda4fdd21158ad4ad7e9ed4e3c7c3e97e"

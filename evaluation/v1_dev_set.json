@@ -1,0 +1,604 @@
+{
+  "dataset_id": "XQ-POLICY-V1-DEV",
+  "version": "0.1.0",
+  "purpose": "development_only_not_formal_score",
+  "cases": [
+    {
+      "id": "DEV-01",
+      "category": "irrelevant_citation",
+      "question": "行政同事参加岗位相关课程，报名后又改了课程日期。原批准还能覆盖吗？需要更新什么？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "行政同事参加岗位相关课程，报名后又改了课程日期。原批准还能覆盖吗？需要更新什么？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "expected_answer": "变更原申请并重新确认；不是一次批准覆盖以后所有课程。",
+      "gold_clause_refs": [
+        "TRAIN-FUNC_2026:C03"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-02",
+      "category": "irrelevant_citation",
+      "question": "员工报销被退回时，财务和经办人应怎样留痕，是否需要另造一个已审核通过的申请编号？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "员工报销被退回时，财务和经办人应怎样留痕，是否需要另造一个已审核通过的申请编号？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "列明原编号、缺项和差异，保留原提交及退回时间；按清单补件，不另造已批准编号。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-03",
+      "category": "source_coverage",
+      "question": "普通物资第一批到货数量不足，供应商承诺明天补齐，现在如何记录，能否将整单标为完成？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "普通物资第一批到货数量不足，供应商承诺明天补齐，现在如何记录，能否将整单标为完成？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "逐批登记实到数量及差异，通知采购经办人，不能第一批签收就整单完成；补交保留与原异常关系。",
+      "gold_clause_refs": [
+        "ACCEPTANCE_2026:C02,C04,C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-04",
+      "category": "subject_applicability",
+      "question": "同一家供应商上午来商务洽谈，下午改为入厂安装，用上午的访客预约覆盖下午工作行不行？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "同一家供应商上午来商务洽谈，下午改为入厂安装，用上午的访客预约覆盖下午工作行不行？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "依据实际目的分别核对，访客预约不能覆盖安装，安装按外协手续。",
+      "gold_clause_refs": [
+        "CONTRACTOR_2026:C01,C02"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-05",
+      "category": "unsupported_inference",
+      "question": "HR台账已经写课程完成，但财务台账还没有看到付款信息。能否据此断定财务实际没有支付？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "HR台账已经写课程完成，但财务台账还没有看到付款信息。能否据此断定财务实际没有支付？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "expected_answer": "HR记录不等于付款；缺少信息不能断定实际未付，需核验实际付款记录。",
+      "gold_clause_refs": [
+        "TRAIN-FUNC_2026:C06,C08"
+      ],
+      "expected_behavior": "PARTIAL_ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-06",
+      "category": "unsupported_inference",
+      "question": "仓库签收了发票对应的货物，但我还没拿到需求部门记录。请直接替我判定整批验收失败。",
+      "turns": [
+        {
+          "role": "user",
+          "content": "仓库签收了发票对应的货物，但我还没拿到需求部门记录。请直接替我判定整批验收失败。"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "仓库签收不是全部验收或付款；不能凭未拿到记录断定实际验收失败。",
+      "gold_clause_refs": [
+        "ACCEPTANCE_2026:C02,C05"
+      ],
+      "expected_behavior": "PARTIAL_ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-07",
+      "category": "no_answer_boundary",
+      "question": "公司员工能否报销家中宽带月租？请给固定上限，不要讲通用公务报销。",
+      "turns": [
+        {
+          "role": "user",
+          "content": "公司员工能否报销家中宽带月租？请给固定上限，不要讲通用公务报销。"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "当前制度未提供家庭宽带报销资格或上限，不能报数也不能认定禁止。",
+      "gold_clause_refs": [],
+      "expected_behavior": "NO_EVIDENCE",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-08",
+      "category": "no_answer_boundary",
+      "question": "一般访客临时取消预约的违约金是几元？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "一般访客临时取消预约的违约金是几元？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "当前资料没有访客取消预约违约金规定，不捏造金额。",
+      "gold_clause_refs": [],
+      "expected_behavior": "NO_EVIDENCE",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-09",
+      "category": "partial_answer",
+      "question": "员工差旅报销给同事发了发票照片，这算提交了吗？若不算，迟提交每延一天扣几元？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "员工差旅报销给同事发了发票照片，这算提交了吗？若不算，迟提交每延一天扣几元？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "发照片不算完整提交；没有逾期每天扣款规则，分开回答。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C02"
+      ],
+      "expected_behavior": "PARTIAL_ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-10",
+      "category": "partial_answer",
+      "question": "行政培训剩余额度能转给同事吗？若违规转让，年终奖扣多少？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "行政培训剩余额度能转给同事吗？若违规转让，年终奖扣多少？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "expected_answer": "不能转给其他员工；年终奖扣款没有依据。",
+      "gold_clause_refs": [
+        "TRAIN-FUNC_2026:C05"
+      ],
+      "expected_behavior": "PARTIAL_ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-11",
+      "category": "department_applicability",
+      "question": "生产员工参加办公软件课程，申请表部门能否改写成行政来套用另一套培训额度？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "生产员工参加办公软件课程，申请表部门能否改写成行政来套用另一套培训额度？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "expected_answer": "课程名不决定部门，按实际生产岗位规则，不自动套用职能规则。",
+      "gold_clause_refs": [
+        "TRAIN-FUNC_2026:C01"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-12",
+      "category": "department_applicability",
+      "question": "财务部团体报名一门课程，总价分摊到每人后是否直接算每个人都获批？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "财务部团体报名一门课程，总价分摊到每人后是否直接算每个人都获批？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "expected_answer": "不能总价平均就视为每人已批准；按个人实际部门、批准记录核对。",
+      "gold_clause_refs": [
+        "TRAIN-FUNC_2026:C03,C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-13",
+      "category": "historical_sources",
+      "question": "2025旧采购授权表还贴在公告栏。2026年同一事项从2800增到6800，按新增4000还是变更后总额审批？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "2025旧采购授权表还贴在公告栏。2026年同一事项从2800增到6800，按新增4000还是变更后总额审批？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "按同事项变更后6800总额，部门负责人及财务负责人；不能按新增额或旧表。",
+      "gold_clause_refs": [
+        "PURCHASE_2026:C03,C07,C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-14",
+      "category": "historical_sources",
+      "question": "2026年培训报销模板仍印着旧的提交期限。模板和现行制度不一致时，经办人以什么为准，维护人员怎么处理？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "2026年培训报销模板仍印着旧的提交期限。模板和现行制度不一致时，经办人以什么为准，维护人员怎么处理？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "有效制度优先；更正旧模板并提示核对，课程结束后7工作日提交。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C02,C07"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-15",
+      "category": "follow_up_switch",
+      "question": "换成关键生产设备：门岗记录安装人员已离厂，这能证明质量复核做完了吗？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "我们聊员工费用报销：财务已登记收件，但没有审核通过记录，这算批准了吗？"
+        },
+        {
+          "role": "user",
+          "content": "换成关键生产设备：门岗记录安装人员已离厂，这能证明质量复核做完了吗？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "不算；新主体设备质量不能用人员离厂反推，关键设备需质量复核。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C08",
+        "CONTRACTOR_2026:C08",
+        "ACCEPTANCE_2026:C03"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-16",
+      "category": "follow_up_switch",
+      "question": "现在换成员工病假证明：可否发到整个生产群让大家评一下？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "我在核对外协人员的保险证明，能拿培训结业证明代替吗？"
+        },
+        {
+          "role": "user",
+          "content": "现在换成员工病假证明：可否发到整个生产群让大家评一下？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "不应公开扩散，证明仅交办理登记核验人员；不能沿用外协规则。",
+      "gold_clause_refs": [
+        "CONTRACTOR_2026:C03",
+        "LEAVE_2026:C06"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-17",
+      "category": "missing_subject",
+      "question": "我这笔钱已经有财务审核通过记录，最迟多久付？目前还没说是员工费用还是供应商货款。",
+      "turns": [
+        {
+          "role": "user",
+          "content": "我这笔钱已经有财务审核通过记录，最迟多久付？目前还没说是员工费用还是供应商货款。"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "先确认员工报销或供应商结算；可分条件说明3工作日/原则15工作日及合同例外，不唯一承诺。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C05",
+        "ACCEPTANCE_2026:C06"
+      ],
+      "expected_behavior": "CLARIFY",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-18",
+      "category": "missing_department",
+      "question": "新入职同事要用今年个人培训余额报名；只知道课程价，不知道岗位归属和已报销金额，现在能定可报余额吗？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "新入职同事要用今年个人培训余额报名；只知道课程价，不知道岗位归属和已报销金额，现在能定可报余额吗？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "不能唯一确定，需实际生产/职能部门和当年已报销金额；不能默认任一部门或全额。",
+      "gold_clause_refs": [
+        "TRAIN-FUNC_2026:C01,C02",
+        "TRAIN-PROD_2026:C01,C02"
+      ],
+      "expected_behavior": "CLARIFY",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-19",
+      "category": "reasonable_advice_trap",
+      "question": "供应商晚交了一批螺丝，按常见做法是不是每天扣合同额千分之一？替公司确认一下。",
+      "turns": [
+        {
+          "role": "user",
+          "content": "供应商晚交了一批螺丝，按常见做法是不是每天扣合同额千分之一？替公司确认一下。"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "资料无逾期交货违约金比例；不能以常见做法确定公司合同责任。",
+      "gold_clause_refs": [
+        "ACCEPTANCE_2026:C04"
+      ],
+      "expected_behavior": "NO_EVIDENCE",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-20",
+      "category": "reasonable_advice_trap",
+      "question": "我事假期间帮同事远程签了采购单，交接制度是不是默认把原申请人的审批权也给我？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "我事假期间帮同事远程签了采购单，交接制度是不是默认把原申请人的审批权也给我？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "代理仅本人原有权限，交接不转移审批权，不能据交接认定有权签单。",
+      "gold_clause_refs": [
+        "LEAVE_2026:C05"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-21",
+      "category": "source_coverage",
+      "question": "一项采购货价19000加同合同安装费2500。审批看哪个总额、需要谁批准、询价几家？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "一项采购货价19000加同合同安装费2500。审批看哪个总额、需要谁批准、询价几家？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "含税同事项总额21500；部门负责人财务负责人总经理；超过10000至少2家书面报价。",
+      "gold_clause_refs": [
+        "PURCHASE_2026:C02,C03,C04"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-22",
+      "category": "source_coverage",
+      "question": "行政岗位课程取消后已部分退款，培训报销材料和台账该怎样对应，能直接用原付款金额当已报销额吗？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "行政岗位课程取消后已部分退款，培训报销材料和台账该怎样对应，能直接用原付款金额当已报销额吗？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "expected_answer": "更新实际发生及退款信息，按实际已报销金额记录，课程/批准/证明对应；不能把原支付当已报销。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C04",
+        "TRAIN-FUNC_2026:C04,C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-23",
+      "category": "unsupported_inference",
+      "question": "外协申请有批准名单和本次交底记录，是不是表示所有区域都能去、各种作业都获许可？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "外协申请有批准名单和本次交底记录，是不是表示所有区域都能去、各种作业都获许可？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "仅批准区域时段，特殊作业许可单独办理，入场交底非全部许可。",
+      "gold_clause_refs": [
+        "CONTRACTOR_2026:C04,C05"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-24",
+      "category": "partial_answer",
+      "question": "财务退回第二次补件，是否自动取消本次员工报销？再次补件沿用哪个编号？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "财务退回第二次补件，是否自动取消本次员工报销？再次补件沿用哪个编号？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "无退回一次终止/次数限制规定，不能推断第二次自动取消；按原编号补正，仍需审核。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C06,C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-25",
+      "category": "no_answer_boundary",
+      "question": "生产线夜班餐券能换现金吗？请说明兑换比例。",
+      "turns": [
+        {
+          "role": "user",
+          "content": "生产线夜班餐券能换现金吗？请说明兑换比例。"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "expected_answer": "当前制度库无夜班餐券兑换规则，不能用培训余额不兑现来推断。",
+      "gold_clause_refs": [],
+      "expected_behavior": "NO_EVIDENCE",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-26",
+      "category": "subject_applicability",
+      "question": "采购经办人也是公司员工，为供应商提交结算能直接走员工个人报销的时间规则吗？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "采购经办人也是公司员工，为供应商提交结算能直接走员工个人报销的时间规则吗？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "依业务性质区分，供应商结算不适用员工提交付款期限。",
+      "gold_clause_refs": [
+        "EXPENSE_2026:C01",
+        "ACCEPTANCE_2026:C01,C06"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-27",
+      "category": "unsupported_inference",
+      "question": "假期已结束、任务台账还显示未交接完成，系统是不是已经自动撤销了请假？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "假期已结束、任务台账还显示未交接完成，系统是不是已经自动撤销了请假？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "不能由工作台账未完成推定申请自动撤销，需说明实际工作日差异核对记录。",
+      "gold_clause_refs": [
+        "LEAVE_2026:C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    },
+    {
+      "id": "DEV-28",
+      "category": "source_coverage",
+      "question": "外协临时换人且任务需要连续两天，到场前和次日分别核对什么？",
+      "turns": [
+        {
+          "role": "user",
+          "content": "外协临时换人且任务需要连续两天，到场前和次日分别核对什么？"
+        }
+      ],
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "expected_answer": "换人更新申请，归口和安全重核材料；次日名单有效材料当日安排重新核验；不可直接改名字沿用。",
+      "gold_clause_refs": [
+        "CONTRACTOR_2026:C02,C03,C06,C08"
+      ],
+      "expected_behavior": "ANSWER",
+      "notes": "独立开发场景；没有读取或派生冻结题面；事实以指定原文复核。"
+    }
+  ]
+}

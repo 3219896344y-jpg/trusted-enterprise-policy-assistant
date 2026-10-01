@@ -1,0 +1,1 @@
+{"passed":3,"failed":0,"model_calls":0,"checks":["historical_fact_without_required_keyword_gets_explicit_renderer_label","nesting_limit","audit_io_failure_fails_safe_without_throw"]}

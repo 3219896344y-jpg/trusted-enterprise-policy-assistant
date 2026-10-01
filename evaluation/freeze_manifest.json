@@ -1,0 +1,28 @@
+{
+  "dataset_id": "XQ-POLICY-V1-EVAL-001",
+  "version": "1.0.1",
+  "frozen_on": "2026-10-01",
+  "purpose": "Integrity hashes only; semantic errata before any model run, not evaluation scores.",
+  "files": {
+    "evaluation/frozen_test_set.json": "db94ffb385f71dc4960d792de12b955df5b0554435dbb283e60646adf15307f7",
+    "policy_data/policy_registry.yaml": "0dba33105281df83b5742d839f59a063ac646ae0030e9cc1f4247053778b6811",
+    "policy_data/raw/ACCEPTANCE_2026.txt": "f72320b965a4cfa06a38eecbbb9110b0fee157e2d2375f97b51fe3f7d606904f",
+    "policy_data/raw/CONTRACTOR_2026.txt": "0e26404ebaa1b9c66ef061e555f9ac5bda4fdd21158ad4ad7e9ed4e3c7c3e97e",
+    "policy_data/raw/EXPENSE_2025.txt": "1039cc5b26951708a0cd048cf0433de39037b29f1cb288843c45001f5e244537",
+    "policy_data/raw/EXPENSE_2026.txt": "4bb0b5e22210c836e0d695cd625f758d194a167f28833a51c30fdfb0e2677e83",
+    "policy_data/raw/INVOICE_2026.txt": "e150d0749ec67e88b080ac53b263ea63214d5371cf24dde75c8cf0a36b9a0dd4",
+    "policy_data/raw/LEAVE_2026.txt": "5309ea4357c974a5f55ec417bdec472c478ecd5e3f74fcf2ed043e7b849d2e77",
+    "policy_data/raw/PURCHASE_2025.txt": "0009a4d2b86680e08a75e6c35a22f06ab5f0c4b88d2ec3c41f3d67d65c690589",
+    "policy_data/raw/PURCHASE_2026.txt": "33506a16494f0057f052c3be1934360208ed762500c28fa245c10ce3f07a3534",
+    "policy_data/raw/TRAIN-FUNC_2026.txt": "9aa8a9f5457343dff2e5bacee6bb9010778f08a580b91706531bf7bc4f32cf1d",
+    "policy_data/raw/TRAIN-PROD_2025.txt": "56b0decb7e86522d8ba36eea094668e8f342e053b2c99059e053dc5fcc351101",
+    "policy_data/raw/TRAIN-PROD_2026.txt": "38990059a44628a5a1e043297072a6935ae2dcf186fbc141adbc53e6550fc369",
+    "policy_data/raw/TRAVEL_2025.txt": "9794f48bf82c8c2898074ab7758813ca1e26a9aba9960477dc6aa9e499226d86",
+    "policy_data/raw/TRAVEL_2026.txt": "87c2ae467ef466cb6eb0287775cbdfe2821f22332eae68e2e84199dede99cca1",
+    "policy_data/raw/VISITOR_2026.txt": "ff2db235220d7a44052a46e3f871e672281f9ba0a92210d58b846a98134dea72"
+  },
+  "refrozen_at_utc": "2026-10-01T06:30:31.077734+00:00",
+  "previous_version": "1.0.0",
+  "previous_manifest_sha256": "d6894fc49a5051f71181e0d0e4d8c780ed9a299e2e39f3b123c491abc6cc9c30",
+  "errata": "docs/evaluation_errata.md"
+}

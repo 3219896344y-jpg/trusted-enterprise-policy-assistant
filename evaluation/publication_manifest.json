@@ -1,0 +1,211 @@
+{
+  "export_date": "2026-10-01",
+  "assets": [
+    {
+      "file": "LICENSE",
+      "mode": "byte_identical",
+      "sha256": "750d1a48caa547b219fdaecfd7fc548c77cbfd2df34703ce9b66fcdf48a16937"
+    },
+    {
+      "file": "third_party/anythingllm.LICENSE",
+      "mode": "byte_identical",
+      "sha256": "782d2dc18a1ed9028ca992520f42b2e0b6187807da0d14455b8ae608e2e5692e"
+    },
+    {
+      "file": "policy_data/policy_registry.yaml",
+      "mode": "byte_identical",
+      "sha256": "0dba33105281df83b5742d839f59a063ac646ae0030e9cc1f4247053778b6811"
+    },
+    {
+      "file": "evaluation/frozen_test_set.json",
+      "mode": "byte_identical",
+      "sha256": "db94ffb385f71dc4960d792de12b955df5b0554435dbb283e60646adf15307f7"
+    },
+    {
+      "file": "evaluation/freeze_manifest.json",
+      "mode": "byte_identical",
+      "sha256": "1e67f816b872d5821b079f322c26b165e3799711e22fe653b575846f31c5d275"
+    },
+    {
+      "file": "evaluation/freeze_manifest.sha256",
+      "mode": "byte_identical",
+      "sha256": "3c7dea2b1b6cc24416b9582300862006c841515ec02fc4016f5098c232720c03"
+    },
+    {
+      "file": "evaluation/v1_dev_set.json",
+      "mode": "byte_identical",
+      "sha256": "b30a49e3e1dbc2b8670243b105cbd2c059e6abcc28f229069559d5b1c39bef9b"
+    },
+    {
+      "file": "docs/evaluation_spec.md",
+      "mode": "byte_identical",
+      "sha256": "f8dd9619f947a344a3f739fde9f285afecb4b0ce05e7e0806c2ff13159ee3579"
+    },
+    {
+      "file": "docs/evaluation_errata.md",
+      "mode": "byte_identical",
+      "sha256": "8412e3b5d79706ea0132da4bf637a896b941c1ca60e186616ddcc03cb3dfc51d"
+    },
+    {
+      "file": "docs/v1_1_run_plan.md",
+      "mode": "byte_identical",
+      "sha256": "8fdec2f367a5e2a6f0934ae0f680cf4fe472f22e159482a5e5e3f273f0c22a36"
+    },
+    {
+      "file": "docs/experiment_run_plan.md",
+      "mode": "byte_identical",
+      "sha256": "64ec9cb08084d6184e5d40bcea0a8073b4a2303009405b7b734484b361d620ff"
+    },
+    {
+      "file": "deployment/anythingllm-v1-1.patch",
+      "mode": "byte_identical",
+      "sha256": "6029103c41fe6baac362253601f62b16a5202c6b6701cbc35122cde2d379baf8"
+    },
+    {
+      "file": "scripts/test_v1_1_faults.cjs",
+      "mode": "byte_identical",
+      "sha256": "ca998510fc1fae3c8ba06cba02bfc0d0cc41e698bca465b9419a23e00c481c7c"
+    },
+    {
+      "file": "scripts/offline_aibitat_fixture.cjs",
+      "mode": "byte_identical",
+      "sha256": "3c5b4def15912843a8b770ee72dd5f912101a550f81dc12afd28afda925cd721"
+    },
+    {
+      "file": "scripts/test_v1_1_edges.cjs",
+      "mode": "byte_identical",
+      "sha256": "5429f77415a773933fd45c6198c90ca9a154b44cf21ccdf65f60f3259dab86ad"
+    },
+    {
+      "file": "policy_data/raw/ACCEPTANCE_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "f72320b965a4cfa06a38eecbbb9110b0fee157e2d2375f97b51fe3f7d606904f"
+    },
+    {
+      "file": "policy_data/raw/CONTRACTOR_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "0e26404ebaa1b9c66ef061e555f9ac5bda4fdd21158ad4ad7e9ed4e3c7c3e97e"
+    },
+    {
+      "file": "policy_data/raw/EXPENSE_2025.txt",
+      "mode": "byte_identical",
+      "sha256": "1039cc5b26951708a0cd048cf0433de39037b29f1cb288843c45001f5e244537"
+    },
+    {
+      "file": "policy_data/raw/EXPENSE_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "4bb0b5e22210c836e0d695cd625f758d194a167f28833a51c30fdfb0e2677e83"
+    },
+    {
+      "file": "policy_data/raw/INVOICE_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "e150d0749ec67e88b080ac53b263ea63214d5371cf24dde75c8cf0a36b9a0dd4"
+    },
+    {
+      "file": "policy_data/raw/LEAVE_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "5309ea4357c974a5f55ec417bdec472c478ecd5e3f74fcf2ed043e7b849d2e77"
+    },
+    {
+      "file": "policy_data/raw/PURCHASE_2025.txt",
+      "mode": "byte_identical",
+      "sha256": "0009a4d2b86680e08a75e6c35a22f06ab5f0c4b88d2ec3c41f3d67d65c690589"
+    },
+    {
+      "file": "policy_data/raw/PURCHASE_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "33506a16494f0057f052c3be1934360208ed762500c28fa245c10ce3f07a3534"
+    },
+    {
+      "file": "policy_data/raw/TRAIN-FUNC_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "9aa8a9f5457343dff2e5bacee6bb9010778f08a580b91706531bf7bc4f32cf1d"
+    },
+    {
+      "file": "policy_data/raw/TRAIN-PROD_2025.txt",
+      "mode": "byte_identical",
+      "sha256": "56b0decb7e86522d8ba36eea094668e8f342e053b2c99059e053dc5fcc351101"
+    },
+    {
+      "file": "policy_data/raw/TRAIN-PROD_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "38990059a44628a5a1e043297072a6935ae2dcf186fbc141adbc53e6550fc369"
+    },
+    {
+      "file": "policy_data/raw/TRAVEL_2025.txt",
+      "mode": "byte_identical",
+      "sha256": "9794f48bf82c8c2898074ab7758813ca1e26a9aba9960477dc6aa9e499226d86"
+    },
+    {
+      "file": "policy_data/raw/TRAVEL_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "87c2ae467ef466cb6eb0287775cbdfe2821f22332eae68e2e84199dede99cca1"
+    },
+    {
+      "file": "policy_data/raw/VISITOR_2026.txt",
+      "mode": "byte_identical",
+      "sha256": "ff2db235220d7a44052a46e3f871e672281f9ba0a92210d58b846a98134dea72"
+    },
+    {
+      "file": "src/governance/gate.cjs",
+      "mode": "byte_identical",
+      "sha256": "39bf2f147d0aaac9d4581bd16fe040c803f455013278303365fea6922bcbd595"
+    },
+    {
+      "file": "src/governance/parse.cjs",
+      "mode": "byte_identical",
+      "sha256": "f99e941a0c817fcffc6a4deff49d4ab28ad0b2f8b299a01a3498566e4b6f49bd"
+    },
+    {
+      "file": "src/governance/registry.json",
+      "mode": "byte_identical",
+      "sha256": "90bcebe77120e87e83ce5dc27eb3de6f2d5986ecb06f9a9f3fe668d6f47afe52"
+    },
+    {
+      "file": "src/governance/reliability.cjs",
+      "mode": "byte_identical",
+      "sha256": "19a45586f0c665d6e8743c6637ac4a22139fd40b14adbe59af70d3939890eee0"
+    },
+    {
+      "file": "src/governance/rules.txt",
+      "mode": "byte_identical",
+      "sha256": "2bcaca4a1026dd46e859077e4dd619a60d7090f9ab2b2f1c357911dc7c6a4e55"
+    },
+    {
+      "file": "src/governance/schema.cjs",
+      "mode": "byte_identical",
+      "sha256": "cfc77c18b8b9c195b681241a26451351575f7be9f410bd25f1fe359f61e0e354"
+    },
+    {
+      "source_file": "evaluation/baseline_b_results.json",
+      "source_sha256": "ace0c70839a6025de817776a8feaf048f12b68cbcc4da2bfaa1d31a2f71ad8a2",
+      "public_file": "evaluation/baseline_b_results_public.json",
+      "public_sha256": "7428806cd8e0717b2f61d8f16219c90ec90ca9b66444bae2925f4011da5a8ece",
+      "mode": "allowlisted_derivative"
+    },
+    {
+      "source_file": "evaluation/v1_1_results.json",
+      "source_sha256": "2dea2223f194606727a2b8014347ce762dede5f9e0e96d79b9a209a974a27002",
+      "public_file": "evaluation/v1_1_results_public.json",
+      "public_sha256": "61d9dcb58f54c63bf58de0355bf4203bb37a2517288ea9e0bceccd7857a750f3",
+      "mode": "allowlisted_derivative"
+    },
+    {
+      "file": "evidence/v1_1/fault_injection_results.json",
+      "mode": "byte_identical",
+      "sha256": "bd167203485b2adbe0fa291c163cfcc979967501e0980304a78ca77e2798f7fa"
+    },
+    {
+      "file": "evidence/v1_1/edge_test_results.json",
+      "mode": "byte_identical",
+      "sha256": "ce8d8c28d46b7cadd74d45da2a03a7b8df94012455208a62be92f82d232b493c"
+    },
+    {
+      "file": "evidence/v1_1/measurement_test_results.json",
+      "mode": "byte_identical",
+      "sha256": "ef5d39f7d067f5443a7307e361d69dbe1a4af1131169875b6d279895ddfaf5df"
+    }
+  ],
+  "visible_text_transformation": "none",
+  "excluded": "Private storage, databases, credentials, runtime identifiers, hidden drafts and bulky raw logs. No case or failed attempt is dropped."
+}

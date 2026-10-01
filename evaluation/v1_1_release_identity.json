@@ -1,0 +1,25 @@
+{
+  "product_code_commit": "69aaaf26074ff8722a39857085f99ece122ea0be",
+  "previous_v1_commit": "1125eef90fb2efc05d71e74921df66c0073789ac",
+  "experiment_id": "V1.1-XQ-1.0.1-SINGLE-02",
+  "dataset": "XQ-POLICY-V1-EVAL-001 / 1.0.1",
+  "test_role": "known_fixed_regression_set_not_unseen_blind_test",
+  "protocol": "MVP single-run; original order and inputs; at most one preregistered technical retry; stop on service interruption",
+  "included_frozen_files": {
+    "src/governance/gate.cjs": "39bf2f147d0aaac9d4581bd16fe040c803f455013278303365fea6922bcbd595",
+    "src/governance/parse.cjs": "f99e941a0c817fcffc6a4deff49d4ab28ad0b2f8b299a01a3498566e4b6f49bd",
+    "src/governance/registry.json": "90bcebe77120e87e83ce5dc27eb3de6f2d5986ecb06f9a9f3fe668d6f47afe52",
+    "src/governance/reliability.cjs": "19a45586f0c665d6e8743c6637ac4a22139fd40b14adbe59af70d3939890eee0",
+    "src/governance/rules.txt": "2bcaca4a1026dd46e859077e4dd619a60d7090f9ab2b2f1c357911dc7c6a4e55",
+    "src/governance/schema.cjs": "cfc77c18b8b9c195b681241a26451351575f7be9f410bd25f1fe359f61e0e354",
+    "deployment/anythingllm-v1-1.patch": "6029103c41fe6baac362253601f62b16a5202c6b6701cbc35122cde2d379baf8",
+    "evaluation/v1_dev_set.json": "b30a49e3e1dbc2b8670243b105cbd2c059e6abcc28f229069559d5b1c39bef9b",
+    "evaluation/frozen_test_set.json": "db94ffb385f71dc4960d792de12b955df5b0554435dbb283e60646adf15307f7",
+    "evaluation/freeze_manifest.json": "1e67f816b872d5821b079f322c26b165e3799711e22fe653b575846f31c5d275",
+    "policy_data/policy_registry.yaml": "0dba33105281df83b5742d839f59a063ac646ae0030e9cc1f4247053778b6811",
+    "docs/evaluation_spec.md": "f8dd9619f947a344a3f739fde9f285afecb4b0ce05e7e0806c2ff13159ee3579",
+    "docs/v1_1_run_plan.md": "8fdec2f367a5e2a6f0934ae0f680cf4fe472f22e159482a5e5e3f273f0c22a36"
+  },
+  "private_archive_commit": "432a9dc3b5c21710ba0cfff0c03786e0e12d4e80",
+  "note": "Original commits belong to the private experiment archive. This public repository starts new curated history; it does not claim to reproduce the private commit graph."
+}

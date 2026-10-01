@@ -1,0 +1,67 @@
+--- a/server/utils/agents/aibitat/index.js
++++ b/server/utils/agents/aibitat/index.js
+@@ -460,7 +460,11 @@
+    * @returns
+    */
+   onInterrupt(listener = () => null) {
+-    this.emitter.on("interrupt", listener);
++    this.emitter.on("interrupt", (...args) => {
++      Promise.resolve().then(() => listener(...args)).catch((error) => {
++        require("/app/policy-governance/reliability.cjs").asyncFailure(this, error, args[0]);
++      });
++    });
+     return this;
+   }
+ 
+@@ -1038,6 +1042,8 @@
+     // Bail before any (further) LLM calls when the session was aborted mid-execution.
+     if (this._aborted) return null;
+     const eventHandler = (type, data) => {
++      // V1: keep unverified draft tokens private until the evidence gate finishes.
++      if (type === "reportStreamEvent" && ["textResponseChunk", "reasoning", "reasoningContent", "fullTextResponse"].includes(data?.type)) return;
+       this?.socket?.send(type, data);
+     };
+ 
+@@ -1124,11 +1130,12 @@
+         this.handlerProps?.log?.(
+           `${fn.caller} tool call resulted in direct output! Returning raw result as string. NO MORE TOOL CALLS WILL BE EXECUTED.`
+         );
++        const governedDirect = await require("/app/policy-governance/reliability.cjs").safeGovern(this, result);
+         const directOutputUUID = completionStream?.uuid || v4();
+-        eventHandler?.("reportStreamEvent", {
++        this?.socket?.send("reportStreamEvent", {
+           type: "fullTextResponse",
+           uuid: directOutputUUID,
+-          content: result,
++          content: governedDirect,
+         });
+         eventHandler?.("reportStreamEvent", {
+           type: "usageMetrics",
+@@ -1137,7 +1144,7 @@
+         });
+         this?.flushCitations?.(directOutputUUID);
+         this?.emitChatId?.(directOutputUUID);
+-        return result;
++        return governedDirect;
+       }
+ 
+       const toolAttachments = this.collectToolAttachments();
+@@ -1170,7 +1177,9 @@
+       );
+     }
+ 
++    const governed = await require("/app/policy-governance/reliability.cjs").safeGovern(this, completionStream?.textResponse);
+     const responseUuid = completionStream?.uuid || v4();
++    this?.socket?.send("reportStreamEvent", { type: "fullTextResponse", uuid: responseUuid, content: governed });
+     eventHandler?.("reportStreamEvent", {
+       type: "usageMetrics",
+       uuid: responseUuid,
+@@ -1178,7 +1187,7 @@
+     });
+     this?.flushCitations?.(responseUuid);
+     this?.emitChatId?.(responseUuid);
+-    return completionStream?.textResponse;
++    return governed;
+   }
+ 
+   /**

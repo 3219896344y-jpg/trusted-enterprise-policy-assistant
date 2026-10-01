@@ -1,0 +1,3096 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "XQ-POLICY-V1-EVAL-001",
+  "version": "1.0.1",
+  "status": "frozen_design_not_executed",
+  "as_of_date": "2026-10-01",
+  "synthetic": true,
+  "categories": {
+    "direct_answer": 10,
+    "multi_policy": 10,
+    "no_answer": 10,
+    "expired_policy": 10,
+    "department_scope": 10,
+    "distractor": 10,
+    "unsupported_inference": 10,
+    "follow_up": 10
+  },
+  "rules": {
+    "unit": "one case; final turn scored for follow_up",
+    "context": "same provided department and date in both arms",
+    "send_to_model": [
+      "as_of_date",
+      "user_context",
+      "question or turns[*].content"
+    ],
+    "never_send_to_model": [
+      "expected_answer",
+      "gold_policy",
+      "gold_evidence",
+      "expected_behavior",
+      "notes",
+      "forbidden_claims"
+    ],
+    "results": "none; no model evaluation run"
+  },
+  "cases": [
+    {
+      "id": "DIRECT_ANSWER-01",
+      "category": "direct_answer",
+      "question": "普通员工现在到北京出差，住宿每人每晚上限是多少？",
+      "expected_answer": "550元/人/晚，适用2026有效版。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "北京、上海、深圳住宿费上限为每人每晚550元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-02",
+      "category": "direct_answer",
+      "question": "当前境内出差申请要提前几个工作日，谁审批？",
+      "expected_answer": "至少提前3个工作日，由直属主管审批。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "员工至少提前3个工作日提交出差申请，由直属主管审批。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-03",
+      "category": "direct_answer",
+      "question": "现行差旅报销完整申请需要在出差结束后多久提交？",
+      "expected_answer": "7个工作日内。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "差旅费用在出差结束后7个工作日内提交完整申请"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-04",
+      "category": "direct_answer",
+      "question": "财务给我的票据补件清单至少应该写明哪三项信息？",
+      "expected_answer": "原申请编号、具体错误字段、需补正的材料。",
+      "gold_policy": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C08"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C08",
+          "quote": "票据补件清单必须列明原申请编号、具体错误字段和需补正的材料三项信息。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "答案位于文件后段C08；用于区分只看到前段与完整检索。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-05",
+      "category": "direct_answer",
+      "question": "事假正好2个工作日，需要哪些人批准？",
+      "expected_answer": "直属主管审批；正好2日属于不超过2日。",
+      "gold_policy": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "事假不超过2个工作日由直属主管审批"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-06",
+      "category": "direct_answer",
+      "question": "连续病假正好3个工作日，要交什么证明？",
+      "expected_answer": "医疗机构出具的证明。",
+      "gold_policy": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C04"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "连续病假达到3个工作日时，应提供医疗机构出具的证明"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-07",
+      "category": "direct_answer",
+      "question": "同一采购事项含税总额正好3000元，谁审批？",
+      "expected_answer": "部门负责人；正好3000元属于第一档。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "含税总额不超过3000元，由部门负责人审批"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-08",
+      "category": "direct_answer",
+      "question": "一笔含税12000元采购，原则上至少需要几家书面报价？",
+      "expected_answer": "至少2家；无法取得时提交唯一来源说明并按原金额层级审批。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C04"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "含税总额超过10000元的采购，至少取得2家供应商的书面报价"
+        },
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "不能取得两家报价的，提交唯一来源说明并按原金额层级审批"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 核心只需至少2家书面报价；唯一来源路径是未被题面询问的可选补充，不因未提及而扣核心正确性分。若主动提及，须保留说明及原金额层级审批条件。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-09",
+      "category": "direct_answer",
+      "question": "商务访客原则上提前多久预约，由谁批准？",
+      "expected_answer": "至少提前1个工作日，由接待部门负责人批准。",
+      "gold_policy": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "商务访客原则上至少提前1个工作日预约，由接待部门负责人批准。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DIRECT_ANSWER-10",
+      "category": "direct_answer",
+      "question": "外协维修人员申请入厂需要哪些材料，由谁核验？",
+      "expected_answer": "人员名单、身份信息、作业内容、人员保险证明；归口部门和安全管理部门共同核验。",
+      "gold_policy": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "申请材料包括人员名单、身份信息、作业内容、人员保险证明；由作业归口部门和安全管理部门共同核验。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-01",
+      "category": "multi_policy",
+      "question": "生产员工去上海参加岗位课程，课程费年度上限和住宿每晚标准分别是多少？",
+      "expected_answer": "生产培训1800元/自然年；上海住宿550元/人/晚；交通住宿另按差旅，不挤占课程额度。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "生产部门每名普通员工每个自然年外部培训报销上限为1800元，个人剩余额度按1800元减去当年已报销培训费用计算。该额度不自动发放，也不是任何课程都可使用的无条件福利；实际报销仍需满足审批、岗位相关性及票据材料要求。课程变更或退费应登记，以免重复占用或重复申报同一费用。"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "培训报销材料为培训批准记录、培训发票、课程介绍和完成培训证明，提交期限及付款时限按有效员工费用报销办法执行。参加外地课程发生的公务交通和住宿，按有效差旅办法另行申请及报销，不挤占本条外部课程费用的年度额度；同一张票据不能同时作为课程费和住宿费重复申报。"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "北京、上海、深圳住宿费上限为每人每晚550元，其他境内城市为每人每晚380元。额度按实际公务住宿夜数核算，未发生住宿不发放等额补贴，实际费用低于上限时按实际合规费用申请。公务结束后的私人延住应与公务住宿分开列示，不能仅因同一张酒店订单就把全部住宿纳入出差费用。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 核心核对生产课程年度上限与上海每人每晚上限；费用分开说明是合理补充，不能因未主动解释额度不挤占而判两项金额回答错误。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-02",
+      "category": "multi_policy",
+      "question": "职能员工外出培训结束后，培训费最晚多久提交报销，需要哪些材料？",
+      "expected_answer": "课程结束后7个工作日内；批准记录、有效培训发票、课程介绍、完成培训证明。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "培训报销应有培训批准记录、有效培训发票、课程介绍和完成培训证明"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "培训费用在课程结束后7个工作日内提交完整申请"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-03",
+      "category": "multi_policy",
+      "question": "北京公务住宿每晚580元，预订前如何处理，回来要带哪些差旅报销材料？",
+      "expected_answer": "现行上限550元；超标预订前部门负责人书面批准；获批出差申请、有效发票、行程说明，住宿发票注明入住离店日期。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C05"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "北京、上海、深圳住宿费上限为每人每晚550元"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "须在预订前取得部门负责人的书面批准"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "差旅报销须有经审批的出差申请、有效发票和行程说明；住宿发票应注明入住日期与离店日期。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-04",
+      "category": "multi_policy",
+      "question": "出差报销发票丢了，我有付款截图，能进入付款流程吗？如果补齐且审核通过，现行付款期限是多少？",
+      "expected_answer": "截图不可替代发票，补齐前不进入付款；审核通过且无待补材料后3个工作日。",
+      "gold_policy": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "补齐前不进入付款环节"
+        },
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "不可直接替代有效发票"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "审核通过且无待补材料后，财务在3个工作日内付款"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-05",
+      "category": "multi_policy",
+      "question": "公司同一采购事项含税总额25000元，购买关键生产设备，要哪些审批，验收又需要哪些角色？",
+      "expected_answer": "部门负责人、财务负责人、总经理审批；仓库、需求部门验收，并有质量部门复核。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "超过20000元，由部门负责人、财务负责人和总经理审批"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "关键生产设备除仓库和需求部门验收外，还须由质量部门复核"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-06",
+      "category": "multi_policy",
+      "question": "供应商采购订单已批准，安排维修人员入厂还需要走哪类流程，能当普通访客进入吗？",
+      "expected_answer": "采购批准不替代人员入场；维修属外协，提前2工作日申请、材料共同核验、现场交底和门岗登记；不能用商务访客流程替代。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C06"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C01"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C06",
+          "quote": "到货验收、质量复核和供应商结算材料按有效《采购验收与对公结算管理办法》办理。采购申请和有效发票不能替代收货及质量记录；对需要入厂安装的供应商人员，另按外协入场制度办理。采购经理在订单上签字不意味着授予其绕过门岗登记、作业交底或其他现场制度的权限。"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "外协单位通过公司内部联系人至少提前2个工作日提交入场申请，说明作业内容、区域、预计起止时间及现场负责人。申请变更人员或区域时更新信息并重新确认，未经登记的替补人员不能直接沿用原名单。批准的采购订单证明业务安排，但不替代人员入场申请和现场核验。"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "申请材料包括人员名单、身份信息、作业内容、人员保险证明；由作业归口部门和安全管理部门共同核验。材料应对应计划入场的实际人员，名单完整不意味着所有材料均合格，两个部门分别确认各自核验事项。保险证明不能用培训结业证明、发票验真记录或病假医疗证明替代。"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "完成核验后，人员入场前须完成现场安全交底并留下记录，门岗依据批准名单及交底记录核验登记。曾在其他厂区接受培训不自动代替本次现场交底，外协单位声明“熟悉现场”也不是免除登记的依据。这里只描述模拟管理手续，不提供实际维修、作业或防护操作方法。"
+        },
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于客户洽谈、参观等非作业商务访客；入厂进行维修、安装等作业的外协人员不适用普通访客预约替代作业入场流程。邀请员工在预约中说明来访目的、人员、预计时间和拟访问区域，行政据此核对接待安排。判断适用制度应依据实际活动，不仅依据对方名片或供应商名称。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-07",
+      "category": "multi_policy",
+      "question": "员工差旅报销和没有特别合同付款节点的供应商结算，审核通过后分别多久付款？",
+      "expected_answer": "员工报销无待补材料后3工作日；完整供应商材料财务审核通过后原则15工作日。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C06"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "审核通过且无待补材料后，财务在3个工作日内付款"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C06",
+          "quote": "完整材料经财务审核通过后，供应商款项原则上在15个工作日内支付"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-08",
+      "category": "multi_policy",
+      "question": "生产员工今年已报销培训900元，现在有700元课程，剩余预算够吗，还要什么批准和报销材料？",
+      "expected_answer": "剩余900元，700元在额度内但不自动获批；报名付费前主管与生产负责人书面批准、HR登记；批准记录、发票、课程介绍、完成证明。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C04"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "生产部门每名普通员工每个自然年外部培训报销上限为1800元，个人剩余额度按1800元减去当年已报销培训费用计算。该额度不自动发放，也不是任何课程都可使用的无条件福利；实际报销仍需满足审批、岗位相关性及票据材料要求。课程变更或退费应登记，以免重复占用或重复申报同一费用。"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "报名付费前须取得直属主管和生产部门负责人的书面批准，并由人力资源部登记培训计划。直属主管同意不等于生产部门负责人已批准，登记成功也不能替代两项书面批准。变更课程内容或增加费用时重新提交变更材料，保留原批准记录与新的确认信息，以便审核人员核对。"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "培训报销须有有效培训批准记录、培训发票、课程介绍和完成培训证明。培训批准的具体人员、预算和适用部门按有效培训制度核对，不能仅凭课程有结业证就判断符合公司全部报销条件。课程延期或取消时，应更新实际发生情况及退款信息，只有实际发生且有制度依据的费用进入审核。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production",
+        "training_reimbursed_yuan": 900
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-09",
+      "category": "multi_policy",
+      "question": "职能员工去成都上课，课程费和住宿分别按哪套规则，课程结束后何时提交费用？",
+      "expected_answer": "职能课程年度2400元，成都属其他境内城市住宿380元/晚；课程结束后7工作日提交培训费，差旅按出差结束后7工作日。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "职能部门每名普通员工每个自然年外部培训报销上限为2400元"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "其他境内城市为每人每晚380元"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "差旅费用在出差结束后7个工作日内提交完整申请，培训费用在课程结束后7个工作日内提交完整申请"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "MULTI_POLICY-10",
+      "category": "multi_policy",
+      "question": "采购含税18000元普通物资，从审批到供应商结算要注意哪些门槛和材料？",
+      "expected_answer": "部门负责人及财务负责人审批；原则至少2家书面报价，无法取得时提交唯一来源说明并按原金额层级审批；结算要采购批准记录、合同或订单、验收记录、有效发票，材料齐全后仍需财务审核。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "含税总额不超过3000元，由部门负责人审批；超过3000元且不超过20000元，由部门负责人和财务负责人审批；超过20000元，由部门负责人、财务负责人和总经理审批。3000元计入第一档，20000元计入第二档；各批准应对应同一采购用途与金额，不用其他项目的授权覆盖本次需求。"
+        },
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "含税总额超过10000元的采购，至少取得2家供应商的书面报价；10000元本身不触发本条两家报价要求。不能取得两家报价的，提交唯一来源说明并按原金额层级审批，不能把说明当作取消审批的依据。报价记录包含供应商、规格、价格及有效期，便于审批人员核对可比性。"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "供应商对公结算应具备采购批准记录、合同或订单、验收记录和有效发票四类材料，材料应对应同一供应商和采购事项。任何一类缺失均先补正，再提交完整结算审核；发票证明开票事项但不替代验收，验收合格也不能省略财务对合同、发票和付款条件的核对。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 不把缺少第二家报价直接判为永远不能采购；唯一来源说明也不等于免审批。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-01",
+      "category": "no_answer",
+      "question": "公司普通员工每年有多少天带薪年假？",
+      "expected_answer": "现有制度未规定，不能给出天数；建议向HR核实。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "LEAVE边界显式未规定，是较容易的拒答样本；其余无答案项多无此提示。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-02",
+      "category": "no_answer",
+      "question": "我们公司的婚假有多少天？",
+      "expected_answer": "制度库未提供婚假天数，不能套用常识。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "全库未规定婚假，不以外部法律常识回答企业政策。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-03",
+      "category": "no_answer",
+      "question": "员工去德国出差，每天的境外餐费补贴是多少？",
+      "expected_answer": "本库仅有境内差旅规则，不能给出境外餐费金额。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "出境地点和餐费是双重未覆盖；不能以住宿额度替代。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-04",
+      "category": "no_answer",
+      "question": "公司2026年年终奖按几个月工资发？",
+      "expected_answer": "没有年终奖计算制度，无法确认。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "奖励待遇未纳入本库。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-05",
+      "category": "no_answer",
+      "question": "出差时把宠物寄养，每天能报销多少？",
+      "expected_answer": "没有宠物寄养报销依据，不能给出金额或承诺报销。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "旧Baseline曾有该边界，本新库未给金额；只拒绝无依据承诺。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-06",
+      "category": "no_answer",
+      "question": "生产员工夜班津贴每班多少元？",
+      "expected_answer": "没有夜班津贴制度，无法确认。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "制造业语境相关但超出六业务范围。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-07",
+      "category": "no_answer",
+      "question": "公司婚育员工育儿假如何按工龄计算？",
+      "expected_answer": "本库无育儿假及工龄计算规则，不能推算。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "不是缺部门导致歧义；补部门仍无依据。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-08",
+      "category": "no_answer",
+      "question": "公司指定员工报销用哪家银行收款？",
+      "expected_answer": "制度没有指定收款银行，不能编造银行名称。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "与报销相关但不存在该事实。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-09",
+      "category": "no_answer",
+      "question": "采购一台新设备，公司统一要求几年的保修期？",
+      "expected_answer": "制度没有统一保修年限，应核对具体合同。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "ACCEPTANCE不设统一保修期限，不从验收流程推定。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "NO_ANSWER-10",
+      "category": "no_answer",
+      "question": "公司采购系统的网址和登录账号申请邮箱是什么？",
+      "expected_answer": "资料中没有真实网址或邮箱，不能生成看似真实的地址。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "模拟数据不包含真实IT地址。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "给出库中不存在的确定数值、待遇、地址或已获批准结论"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-01",
+      "category": "expired_policy",
+      "question": "旧差旅表写北京住宿每人每晚上限500元，今年10月的新行程还按500元吗？",
+      "expected_answer": "不按旧版；2026有效版550元。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "北京、上海、深圳住宿费上限为每人每晚550元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "以500元作为当前北京住宿上限"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-02",
+      "category": "expired_policy",
+      "question": "2025差旅办法写其他境内城市住宿每人每晚上限350元，现在去成都住宿也只能按这个上限吗？",
+      "expected_answer": "2026有效版其他境内城市380元。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "其他境内城市为每人每晚380元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "以350元作为当前成都住宿上限"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-03",
+      "category": "expired_policy",
+      "question": "我找到提前2个工作日的旧出差申请说明，今天新申请应提前多久？",
+      "expected_answer": "至少3个工作日，以2026版为准。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "员工至少提前3个工作日提交出差申请"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "当前只需提前2个工作日"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-04",
+      "category": "expired_policy",
+      "question": "旧报销制度说出差结束10个工作日内提交，今年新费用还能等到第10个工作日吗？",
+      "expected_answer": "现行完整申请期限是7个工作日；不能沿用10日作为当前期限，不推定逾期必然处罚。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "差旅费用在出差结束后7个工作日内提交完整申请"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "现行提交期限为10工作日"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-05",
+      "category": "expired_policy",
+      "question": "2025文件说报销审核后5个工作日付款，现在有效规则是什么？",
+      "expected_answer": "审核通过且无待补材料后3工作日。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "审核通过且无待补材料后，财务在3个工作日内付款"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "现行员工报销付款期限5工作日"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-06",
+      "category": "expired_policy",
+      "question": "生产部门旧培训页显示全年1200元，2026年额度是不是仍1200元？",
+      "expected_answer": "生产部门现行1800元/自然年。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "生产部门每名普通员工每个自然年外部培训报销上限为1800元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [
+        "生产当前额度1200元"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-07",
+      "category": "expired_policy",
+      "question": "生产员工按旧培训办法只拿到主管批准，2026年报名付款前还需要谁？",
+      "expected_answer": "当前报名付费前须有直属主管和生产部门负责人的书面批准，另由HR登记。若已有主管批准符合本次课程的书面要求，还缺生产部门负责人书面批准；否则主管批准也需核对补齐。HR登记不代替两项批准。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "报名付费前须取得直属主管和生产部门负责人的书面批准，并由人力资源部登记培训计划。直属主管同意不等于生产部门负责人已批准，登记成功也不能替代两项书面批准。变更课程内容或增加费用时重新提交变更材料，保留原批准记录与新的确认信息，以便审核人员核对。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [
+        "只需直属主管批准即可满足当前培训审批"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-08",
+      "category": "expired_policy",
+      "question": "同一采购含税4500元，旧表说5000元以下部门签字就行，今年照办可以吗？",
+      "expected_answer": "不可以沿用旧档；当前超过3000不超过20000，部门与财务负责人审批。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "超过3000元且不超过20000元，由部门负责人和财务负责人审批"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "4500元当前只需部门负责人"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-09",
+      "category": "expired_policy",
+      "question": "旧采购文件说含税总额30000元以内不需要总经理，现有同一事项含税总额25000元的新采购应找谁？",
+      "expected_answer": "超过当前20000门槛，部门负责人、财务负责人、总经理审批。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "超过20000元，由部门负责人、财务负责人和总经理审批"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "25000元不需总经理审批"
+      ],
+      "turns": []
+    },
+    {
+      "id": "EXPIRED_POLICY-10",
+      "category": "expired_policy",
+      "question": "旧报销页写课程结束后10个工作日交材料，2026年培训费申请截止规则是什么？",
+      "expected_answer": "课程结束后7个工作日内完整提交。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "培训费用在课程结束后7个工作日内提交完整申请"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "培训报销当前可在10工作日内提交"
+      ],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-01",
+      "category": "department_scope",
+      "question": "我是生产部门员工，今年外部岗位培训上限多少？",
+      "expected_answer": "1800元/自然年；不是职能部门2400元。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "生产部门每名普通员工每个自然年外部培训报销上限为1800元，个人剩余额度按1800元减去当年已报销培训费用计算。该额度不自动发放，也不是任何课程都可使用的无条件福利；实际报销仍需满足审批、岗位相关性及票据材料要求。课程变更或退费应登记，以免重复占用或重复申报同一费用。"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "职能部门每名普通员工每个自然年外部培训报销上限为2400元，按个人当年已报销培训金额累计计算。剩余额度可用于后续满足条件的课程，但不是直接兑现的补贴，低于上限的课程也应完成事前审批和报销材料准备。员工不能因为生产部门额度较低或较高就混用两个部门的年度预算。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 生产1800元/自然年是核心；职能对照金额是可选解释，不要求回答未被询问的同事额度。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-02",
+      "category": "department_scope",
+      "question": "我是财务部员工，外部专业课程年度报销上限多少？",
+      "expected_answer": "财务属于职能，2400元/自然年。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于人力资源、财务、行政等职能部门普通员工"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "职能部门每名普通员工每个自然年外部培训报销上限为2400元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional",
+        "department_name": "财务部"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-03",
+      "category": "department_scope",
+      "question": "我是公司普通员工，准备参加岗位相关的外部课程，我适用的年度报销上限是多少？",
+      "expected_answer": "没有统一单值；先确认生产还是职能，可分别说明1800/2400元及适用范围。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "生产部门每名普通员工每个自然年外部培训报销上限为1800元"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "职能部门每名普通员工每个自然年外部培训报销上限为2400元"
+        }
+      ],
+      "expected_behavior": "clarify",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 缺实际部门无法给本人唯一金额；询问归属或明确列出两种条件并说明需确认归属均可，不强制某句问号话术。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": null
+      },
+      "forbidden_claims": [
+        "在未确认部门时给出无条件单一额度"
+      ],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-04",
+      "category": "department_scope",
+      "question": "生产员工报名之前只有直属主管签字，审批是否齐全？",
+      "expected_answer": "书面批准尚不齐全，还缺生产部门负责人书面批准。另须确认HR已登记培训计划；HR登记是独立办理要求，不是第三项书面批准，也不因题面只提签字就断定未登记。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "报名付费前须取得直属主管和生产部门负责人的书面批准，并由人力资源部登记培训计划。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-05",
+      "category": "department_scope",
+      "question": "行政员工报名岗位课程也必须找生产部门负责人签字吗？",
+      "expected_answer": "本库职能规则为直属主管书面批准和HR登记，无须按生产规则找生产负责人。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "员工在报名付费前取得直属主管的书面批准，并由人力资源部登记培训计划。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional",
+        "department_name": "行政部"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-06",
+      "category": "department_scope",
+      "question": "生产员工和HR员工一起去深圳出差，酒店上限有部门区别吗？",
+      "expected_answer": "该差旅规则适用两类员工，均550元/人/晚。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于生产部门及职能部门普通员工"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "北京、上海、深圳住宿费上限为每人每晚550元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-07",
+      "category": "department_scope",
+      "question": "我在生产部门，但课程是办公软件，可以按职能部门2400元申请吗？",
+      "expected_answer": "不能因课程名称改用职能额度；仍按实际生产部门，核对岗位相关性。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于人力资源、财务、行政等职能部门普通员工的岗位相关外部课程，不适用于生产部门和外协人员。员工申请写明实际部门、岗位、课程名称及业务用途，直属主管核对培训与当前职责是否相关。课程名称本身不决定适用部门，生产员工参加办公软件课程也不能因此自动套用职能部门规则。"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "生产部门每名普通员工每个自然年外部培训报销上限为1800元，个人剩余额度按1800元减去当年已报销培训费用计算。该额度不自动发放，也不是任何课程都可使用的无条件福利；实际报销仍需满足审批、岗位相关性及票据材料要求。课程变更或退费应登记，以免重复占用或重复申报同一费用。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-08",
+      "category": "department_scope",
+      "question": "我是外协维修单位员工，能套生产员工1800元培训额度吗？",
+      "expected_answer": "生产培训文件不适用外协人员，本库没有外协个人培训报销额度，不能承诺。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C01"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "不适用于职能部门或外协单位人员"
+        }
+      ],
+      "expected_behavior": "partial_answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": null,
+        "identity": "contractor"
+      },
+      "forbidden_claims": [
+        "外协可直接享有1800元额度"
+      ],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-09",
+      "category": "department_scope",
+      "question": "我从生产调到行政，今年能重新领一份完整2400元培训额度吗？",
+      "expected_answer": "不能直接确认重置；HR核对当年记录，制度没有调岗重获全年额度的规则。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "跨部门调岗情形由人力资源部核对当年记录，本办法没有规定调岗即可重新获得全年额度。"
+        }
+      ],
+      "expected_behavior": "partial_answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional",
+        "prior_department": "production"
+      },
+      "forbidden_claims": [
+        "调岗自动重置额度"
+      ],
+      "turns": []
+    },
+    {
+      "id": "DEPARTMENT_SCOPE-10",
+      "category": "department_scope",
+      "question": "我说自己是制造支持中心员工，没说明属于生产还是职能，培训该找哪些审批人？",
+      "expected_answer": "先确认实际部门归属，不能凭名称猜测；可分别说明生产主管+生产负责人、职能主管，均HR登记。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于生产部门普通员工参加与当前岗位直接相关的外部课程，不适用于职能部门或外协单位人员。申请填写岗位、课程内容、举办机构、计划时间与费用承担部门，生产主管核对岗位相关性。员工只说明“参加培训”而未说明部门时，制度维护人员先确认归属，不因为课程名称包含办公或技术就判断其部门。"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "报名付费前须取得直属主管和生产部门负责人的书面批准，并由人力资源部登记培训计划。直属主管同意不等于生产部门负责人已批准，登记成功也不能替代两项书面批准。变更课程内容或增加费用时重新提交变更材料，保留原批准记录与新的确认信息，以便审核人员核对。"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "员工在报名付费前取得直属主管的书面批准，并由人力资源部登记培训计划。课程、预算或时间变化时更新原申请并重新确认，不能用一次批准覆盖以后所有课程。人力资源部登记便于核对个人年度使用情况，不代表财务审核或付款已完成，主管批准也不直接决定发票是否有效。"
+        }
+      ],
+      "expected_behavior": "clarify",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 审批人与登记职责分开说明；可先问归属，也可条件列出两种路径并明确无法据名称选定，不要求固定问句。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": null,
+        "department_name": "制造支持中心"
+      },
+      "forbidden_claims": [
+        "无依据认定制造支持中心属于某部门"
+      ],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-01",
+      "category": "distractor",
+      "question": "病假证明能用培训结业证明代替吗？",
+      "expected_answer": "连续病假达到3工作日要求医疗机构证明，培训结业证明不是该证明。",
+      "gold_policy": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C04"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "连续病假达到3个工作日时，应提供医疗机构出具的证明"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "相似“证明”词；判断材料出具主体，不把培训证明当医疗证明。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-02",
+      "category": "distractor",
+      "question": "我的员工差旅报销审核通过了，能引用供应商15个工作日付款规则吗？",
+      "expected_answer": "不能，员工报销无待补材料后3工作日；15工作日是供应商结算。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C06"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "申请先由直属主管核实业务真实性，再由财务审核票据。审核通过且无待补材料后，财务在3个工作日内付款；退回补件期间不属于审核通过后的付款等待期。财务发现收款信息或费用金额与材料不一致时，应退回核对，不得仅凭主管同意就跳过票据审核和信息检查。"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C06",
+          "quote": "完整材料经财务审核通过后，供应商款项原则上在15个工作日内支付；合同另有明确付款节点时按经批准合同执行。该15个工作日不适用于员工差旅或培训报销，未完成审核不能从到货日直接倒推出承诺付款日。财务记录审核日期和实际支付信息，便于采购经办人向供应商核对状态。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-03",
+      "category": "distractor",
+      "question": "供应商来安装设备，但只办了客户参观预约，能直接开工吗？",
+      "expected_answer": "不能凭客户参观预约直接开工；安装人员应走外协入场流程。若实际作业涉及动火、高处等另需许可的事项，再由相应授权流程单独办理，不能断言所有安装均需同一种额外许可。",
+      "gold_policy": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于客户洽谈、参观等非作业商务访客；入厂进行维修、安装等作业的外协人员不适用普通访客预约替代作业入场流程。邀请员工在预约中说明来访目的、人员、预计时间和拟访问区域，行政据此核对接待安排。判断适用制度应依据实际活动，不仅依据对方名片或供应商名称。"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "外协人员只在批准区域和时段活动；确需动火、高处作业等另需的作业许可，应由相应授权流程单独办理。入场批准和安全交底不自动构成上述作业许可，普通访客证也不能作为作业批准。区域、人员或任务变化时联系现场负责人重新核对，不能因合同总范围较广就自行扩大现场活动范围。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-04",
+      "category": "distractor",
+      "question": "采购设备已有经审批订单和发票，就能套用员工差旅报销申请的三类材料办理供应商付款吗？",
+      "expected_answer": "不能，供应商对公结算需批准记录、合同/订单、验收记录、有效发票，不能套个人报销。",
+      "gold_policy": [
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C05"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于公司采购货物或服务的到货验收及供应商对公结算，与采购需求审批制度配套使用。员工差旅报销不按本办法的验收角色和付款周期办理。经办人以采购申请及订单编号关联交付记录，分批到货时分别记录数量与日期，不能仅凭一张供应商送货单认定全部合同已经履行。"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "供应商对公结算应具备采购批准记录、合同或订单、验收记录和有效发票四类材料，材料应对应同一供应商和采购事项。任何一类缺失均先补正，再提交完整结算审核；发票证明开票事项但不替代验收，验收合格也不能省略财务对合同、发票和付款条件的核对。"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "差旅报销须有经审批的出差申请、有效发票和行程说明；住宿发票应注明入住日期与离店日期。票据日期、地点或金额与获批行程不同的，附差异说明供审核核对。直属主管的聊天回复、酒店订单和支付截图可以作为辅助材料，但不能直接替代本条要求的获批申请及有效发票。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-05",
+      "category": "distractor",
+      "question": "培训费用报销需要医疗机构出具的证明吗？",
+      "expected_answer": "本培训材料要求完成培训证明，不是医疗证明；还需批准记录、发票、课程介绍。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C04"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "培训报销须有有效培训批准记录、培训发票、课程介绍和完成培训证明"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-06",
+      "category": "distractor",
+      "question": "访客拍照的书面审批，可以拿出差住宿超标批准代替吗？",
+      "expected_answer": "不能，拍摄须行政部和被拍摄区域负责人书面同意。",
+      "gold_policy": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "厂区内拍照、录像须事先取得行政部和被拍摄区域负责人的书面同意。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-07",
+      "category": "distractor",
+      "question": "报销申请先让部门主管确认了，是不是发票验真也完成了？",
+      "expected_answer": "不是，业务主管确认不替代财务票据核验，电子发票须记录验真结果。",
+      "gold_policy": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "业务主管对实际业务的确认不能直接代替财务对票据真实性及一致性的检查"
+        },
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "电子发票在报销审核中须完成验真并登记验真结果"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-08",
+      "category": "distractor",
+      "question": "外协入场要求人员保险证明，我交电子发票验真结果行不行？",
+      "expected_answer": "不行，保险证明不能用发票验真记录替代。",
+      "gold_policy": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "保险证明不能用培训结业证明、发票验真记录或病假医疗证明替代。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-09",
+      "category": "distractor",
+      "question": "批准来访的客户今天离场后，明天再来能直接沿用当日访客证吗？",
+      "expected_answer": "不能，一次预约不自动覆盖次日，访客证限本人当日使用，需重新预约。",
+      "gold_policy": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C06"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "访客证限本人当日使用"
+        },
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C06",
+          "quote": "一次预约不自动覆盖次日再次来访，日期或访问目的变化时重新办理预约。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "DISTRACTOR-10",
+      "category": "distractor",
+      "question": "采购普通非关键物资，收货时谁核对数量和外观，是财务的发票核验人员吗？",
+      "expected_answer": "普通非关键物资由仓库保管员核对数量外观，需求部门确认规格；不把票据核验角色替代验收。",
+      "gold_policy": [
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "非关键物资到货后，由仓库保管员核对数量和外观，再由需求部门确认规格和使用要求。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-01",
+      "category": "unsupported_inference",
+      "question": "出差结束后，我的差旅报销申请超过了规定的提交期限，就一定永久不能报销，对吧？",
+      "expected_answer": "能确认：差旅费用须在出差结束后7个工作日内提交完整报销申请。不能确认：超过期限就永久失去报销资格，制度未规定该自动后果；也不能反向保证逾期一定获报，个案仍需财务核验。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C06"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "差旅费用在出差结束后7个工作日内提交完整申请，培训费用在课程结束后7个工作日内提交完整申请。只有把必备材料提交到报销流程才算提交，个人保存草稿或给同事发票照片不算。申请人应在事项结束后整理材料，对可能影响时限的缺件向直属主管说明，本条没有规定逾期即永久失去报销资格。"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "申请先由直属主管核实业务真实性，再由财务审核票据。审核通过且无待补材料后，财务在3个工作日内付款；退回补件期间不属于审核通过后的付款等待期。财务发现收款信息或费用金额与材料不一致时，应退回核对，不得仅凭主管同意就跳过票据审核和信息检查。"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C06",
+          "quote": "缺失发票、重复票据、电子发票验真和抬头错误按《费用票据核验指引》处理。申请退回时列明缺少项目，申请人保留原申请编号补正后重新提交。补齐材料不代表审核自动通过，财务仍需核对业务一致性。本制度没有赋予报销助手审批、发放款项或决定个案罚款的权限。"
+        }
+      ],
+      "expected_behavior": "partial_answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 测试目标是由报销提交期限推导永久资格丧失的无依据后果；不是出发前3工作日申请。本次选择B，业务目标与诱导后果保留，未改变制度时限。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "逾期一定永久不得报销"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-02",
+      "category": "unsupported_inference",
+      "question": "连续病假只有2个工作日，制度就保证我不用交任何材料吧？",
+      "expected_answer": "能确认：达到3个工作日需医疗机构证明，不能据此反推2日免除全部材料。不能确认：仅凭本库给出2日病假的完整具体材料清单，应向HR核实。",
+      "gold_policy": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C04"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "连续病假达到3个工作日时，应提供医疗机构出具的证明，注明可核对的就诊与休息信息。主管接收材料后转人力资源部核验登记，医疗证明的提交本身不代表病假相关工资或待遇已确定。本条未设定连续病假不足3个工作日一律无需任何材料的规则，遇此类具体材料问题应向人力资源部确认。"
+        }
+      ],
+      "expected_behavior": "partial_answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "2日病假必然免全部证明材料"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-03",
+      "category": "unsupported_inference",
+      "question": "公司批准我培训了，是不是已经承诺培训费必定全额付款？",
+      "expected_answer": "能确认：培训批准不免除年度额度、实际费用、材料、票据和财务审核要求。不能确认：这笔费用必定全额获报或已付款；题目没有实际费用、当年已使用额度及审核结果。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "职能部门每名普通员工每个自然年外部培训报销上限为2400元，按个人当年已报销培训金额累计计算。剩余额度可用于后续满足条件的课程，但不是直接兑现的补贴，低于上限的课程也应完成事前审批和报销材料准备。员工不能因为生产部门额度较低或较高就混用两个部门的年度预算。"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "员工在报名付费前取得直属主管的书面批准，并由人力资源部登记培训计划。课程、预算或时间变化时更新原申请并重新确认，不能用一次批准覆盖以后所有课程。人力资源部登记便于核对个人年度使用情况，不代表财务审核或付款已完成，主管批准也不直接决定发票是否有效。"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "培训报销须有有效培训批准记录、培训发票、课程介绍和完成培训证明。培训批准的具体人员、预算和适用部门按有效培训制度核对，不能仅凭课程有结业证就判断符合公司全部报销条件。课程延期或取消时，应更新实际发生情况及退款信息，只有实际发生且有制度依据的费用进入审核。"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "申请先由直属主管核实业务真实性，再由财务审核票据。审核通过且无待补材料后，财务在3个工作日内付款；退回补件期间不属于审核通过后的付款等待期。财务发现收款信息或费用金额与材料不一致时，应退回核对，不得仅凭主管同意就跳过票据审核和信息检查。"
+        }
+      ],
+      "expected_behavior": "partial_answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "functional"
+      },
+      "forbidden_claims": [
+        "审批后必然全额付款"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-04",
+      "category": "unsupported_inference",
+      "question": "一张电子发票能正常打开，说明已经通过验真了吧？",
+      "expected_answer": "不能，须实际完成验真并登记结果；文件可打开不是验真完成。",
+      "gold_policy": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "INVOICE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "电子发票在报销审核中须完成验真并登记验真结果，保存电子原文件以便复核。电子发票符合其他核验要求时，无需额外提交纸质打印件；打印一份电子发票也不增加其真实性。验真服务暂时不可用时，记录待核验状态，等待完成核验后继续审批，不能因文件能够打开就认为验真已经通过。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 answer表示可完整回答“能打开是否足以证明验真”的规则问题；不代表获知该票真实验真状态。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "可打开即验真通过"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-05",
+      "category": "unsupported_inference",
+      "question": "设备采购预算批准了，所以设备质量已经合格，可以付款了吧？",
+      "expected_answer": "能确认：采购批准只确认需求和预算授权，不替代实际验收；供应商结算仍需批准记录、合同或订单、验收记录、有效发票及财务核对。不能确认：该设备实际质量已合格或该笔款项已获准支付，题面未提供相应结果。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C05"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "紧急停线事项仍须先完成对应金额层级的审批，再下单；“紧急”不自动免除书面授权。规格、用途、数量或金额变化时，在原申请下记录变更并重新核对需要的审批人员。采购批准只确认需求和预算授权，不代表质量验收通过、付款已批准或供应商可直接进入厂区。"
+        },
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "供应商对公结算应具备采购批准记录、合同或订单、验收记录和有效发票四类材料，材料应对应同一供应商和采购事项。任何一类缺失均先补正，再提交完整结算审核；发票证明开票事项但不替代验收，验收合格也不能省略财务对合同、发票和付款条件的核对。"
+        }
+      ],
+      "expected_behavior": "partial_answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "预算批准即验收合格或已批准付款"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-06",
+      "category": "unsupported_inference",
+      "question": "我到北京公务出差，酒店每人每晚低于550元，就不需要出差审批或有效发票了吧？",
+      "expected_answer": "不能免除。至少提前3个工作日提交出差申请，由直属主管审批；报销仍需经审批的出差申请、有效发票、行程说明。3工作日是提交申请的提前量，条款没有另设提前3工作日完成审批的时限。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "北京、上海、深圳住宿费上限为每人每晚550元，其他境内城市为每人每晚380元。额度按实际公务住宿夜数核算，未发生住宿不发放等额补贴，实际费用低于上限时按实际合规费用申请。公务结束后的私人延住应与公务住宿分开列示，不能仅因同一张酒店订单就把全部住宿纳入出差费用。"
+        },
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "员工至少提前3个工作日提交出差申请，由直属主管审批。申请未完成前不按已批准行程办理公司承担的预订；紧急任务应在申请中说明原因，但本办法不设口头同意自动替代审批的流程。已批准行程的目的地或日期发生变化时，在原申请中提交变更说明，由直属主管确认后按变更行程执行。"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "差旅报销须有经审批的出差申请、有效发票和行程说明；住宿发票应注明入住日期与离店日期。票据日期、地点或金额与获批行程不同的，附差异说明供审核核对。直属主管的聊天回复、酒店订单和支付截图可以作为辅助材料，但不能直接替代本条要求的获批申请及有效发票。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "低于上限免审批或免发票"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-07",
+      "category": "unsupported_inference",
+      "question": "已拿访客证就说明我能独自去生产车间，对吗？",
+      "expected_answer": "不能，生产区域需接待人员全程陪同；访客证不授予独自进入。",
+      "gold_policy": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C04"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "进入生产区域须由接待人员全程陪同，并按现场标识要求使用相应防护用品。持有访客证不意味着可以独自进入生产区域，陪同人员变更应交接接待责任。计划访问区域变化时由接待人员联系行政核对安排，本条是模拟接待规则，不替代任何真实现场的安全操作要求。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "访客证允许独自进车间"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-08",
+      "category": "unsupported_inference",
+      "question": "通过外协入场核验，等于动火作业也获批了吧？",
+      "expected_answer": "不等于，另需作业许可单独办理；入场和交底不自动构成许可。",
+      "gold_policy": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "外协人员只在批准区域和时段活动；确需动火、高处作业等另需的作业许可，应由相应授权流程单独办理。入场批准和安全交底不自动构成上述作业许可，普通访客证也不能作为作业批准。区域、人员或任务变化时联系现场负责人重新核对，不能因合同总范围较广就自行扩大现场活动范围。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 只否定入场与动火许可等同，不断言该人员从未另行取得许可。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [
+        "入场批准即动火许可"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-09",
+      "category": "unsupported_inference",
+      "question": "培训年度额度用不完，会自动变成工资补贴发我吧？",
+      "expected_answer": "不能推定，生产培训额度不自动发放，未使用不能转给别人或结转；制度无工资兑现依据。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C05"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "该额度不自动发放"
+        },
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C05",
+          "quote": "未使用的年度额度不能转给其他员工，也不能结转至下一自然年。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。 核心是年度培训额度不自动兑现工资；转给他人/跨年结转是可选补充，不把这些额外规则当未被询问的必答点。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [
+        "剩余额度自动兑现工资"
+      ],
+      "turns": []
+    },
+    {
+      "id": "UNSUPPORTED_INFERENCE-10",
+      "category": "unsupported_inference",
+      "question": "生产培训拿到结业证后，是不是自动加薪200元？",
+      "expected_answer": "结业不自动产生津贴或晋升，本库没有200元加薪依据。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C06"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C06",
+          "quote": "课程通过并不自动产生晋升、津贴或免除其他岗位要求的结果"
+        }
+      ],
+      "expected_behavior": "partial_answer",
+      "notes": "按指定日期和适用范围回答；不得添加未被制度支持的业务结论。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [
+        "结业自动加薪200元"
+      ],
+      "turns": []
+    },
+    {
+      "id": "FOLLOW_UP-01",
+      "category": "follow_up",
+      "question": "那成都呢？",
+      "expected_answer": "承接住宿，成都为其他境内城市380元/人/晚。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAVEL",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "其他境内城市为每人每晚380元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "现在上海出差住宿每人每晚的费用上限是多少？",
+          "expected_answer": "550元",
+          "gold_policy": [
+            {
+              "policy_id": "TRAVEL",
+              "version": "2026",
+              "clause_id": "C03"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "TRAVEL",
+              "version": "2026",
+              "clause_id": "C03",
+              "quote": "北京、上海、深圳住宿费上限为每人每晚550元"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "那成都呢？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-02",
+      "category": "follow_up",
+      "question": "那财务部的同事呢？",
+      "expected_answer": "切换对象为职能部门，2400元/自然年。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于人力资源、财务、行政等职能部门普通员工"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "职能部门每名普通员工每个自然年外部培训报销上限为2400元"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "我是生产员工，培训年度上限是多少？",
+          "expected_answer": "1800元",
+          "gold_policy": [
+            {
+              "policy_id": "TRAIN-PROD",
+              "version": "2026",
+              "clause_id": "C02"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "TRAIN-PROD",
+              "version": "2026",
+              "clause_id": "C02",
+              "quote": "生产部门每名普通员工每个自然年外部培训报销上限为1800元"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "那财务部的同事呢？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-03",
+      "category": "follow_up",
+      "question": "报价变成3001元了，需要增加谁？",
+      "expected_answer": "增加财务负责人，部门+财务负责人。",
+      "gold_policy": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "PURCHASE",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "超过3000元且不超过20000元，由部门负责人和财务负责人审批"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "一笔含税3000元采购谁审批？",
+          "expected_answer": "部门负责人",
+          "gold_policy": [
+            {
+              "policy_id": "PURCHASE",
+              "version": "2026",
+              "clause_id": "C03"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "PURCHASE",
+              "version": "2026",
+              "clause_id": "C03",
+              "quote": "含税总额不超过3000元，由部门负责人审批"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "报价变成3001元了，需要增加谁？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-04",
+      "category": "follow_up",
+      "question": "换成供应商结算，没有合同另定付款节点，也按这个时间吗？",
+      "expected_answer": "切换为供应商，完整材料财务审核通过后原则15工作日。",
+      "gold_policy": [
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C06"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "ACCEPTANCE",
+          "version": "2026",
+          "clause_id": "C06",
+          "quote": "完整材料经财务审核通过后，供应商款项原则上在15个工作日内支付"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "员工报销审核通过后多久付款？",
+          "expected_answer": "无待补材料后3工作日",
+          "gold_policy": [
+            {
+              "policy_id": "EXPENSE",
+              "version": "2026",
+              "clause_id": "C05"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "EXPENSE",
+              "version": "2026",
+              "clause_id": "C05",
+              "quote": "审核通过且无待补材料后，财务在3个工作日内付款"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "换成供应商结算，没有合同另定付款节点，也按这个时间吗？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-05",
+      "category": "follow_up",
+      "question": "他这次其实是来修设备的，还按刚才那个流程吗？",
+      "expected_answer": "改为外协作业，至少2工作日申请及核验交底，不能沿用普通访客流程。",
+      "gold_policy": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C04"
+        },
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C01"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于入厂维修、安装等作业的外协人员，普通商务洽谈和参观访客另按访客制度办理。公司内部联系人登记作业单位、人员名单、区域和计划时间，明确与采购订单或作业任务的对应关系。供应商同时承担商务洽谈和安装时，依据实际进入目的分别核对，不用一次访客预约覆盖全部活动。"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "外协单位通过公司内部联系人至少提前2个工作日提交入场申请，说明作业内容、区域、预计起止时间及现场负责人。申请变更人员或区域时更新信息并重新确认，未经登记的替补人员不能直接沿用原名单。批准的采购订单证明业务安排，但不替代人员入场申请和现场核验。"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "申请材料包括人员名单、身份信息、作业内容、人员保险证明；由作业归口部门和安全管理部门共同核验。材料应对应计划入场的实际人员，名单完整不意味着所有材料均合格，两个部门分别确认各自核验事项。保险证明不能用培训结业证明、发票验真记录或病假医疗证明替代。"
+        },
+        {
+          "policy_id": "CONTRACTOR",
+          "version": "2026",
+          "clause_id": "C04",
+          "quote": "完成核验后，人员入场前须完成现场安全交底并留下记录，门岗依据批准名单及交底记录核验登记。曾在其他厂区接受培训不自动代替本次现场交底，外协单位声明“熟悉现场”也不是免除登记的依据。这里只描述模拟管理手续，不提供实际维修、作业或防护操作方法。"
+        },
+        {
+          "policy_id": "VISITOR",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于客户洽谈、参观等非作业商务访客；入厂进行维修、安装等作业的外协人员不适用普通访客预约替代作业入场流程。邀请员工在预约中说明来访目的、人员、预计时间和拟访问区域，行政据此核对接待安排。判断适用制度应依据实际活动，不仅依据对方名片或供应商名称。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "商务访客需要提前多久预约？",
+          "expected_answer": "原则上至少提前1个工作日预约。",
+          "gold_policy": [
+            {
+              "policy_id": "VISITOR",
+              "version": "2026",
+              "clause_id": "C02"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "VISITOR",
+              "version": "2026",
+              "clause_id": "C02",
+              "quote": "商务访客原则上至少提前1个工作日预约"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "他这次其实是来修设备的，还按刚才那个流程吗？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-06",
+      "category": "follow_up",
+      "question": "改成3个工作日呢？",
+      "expected_answer": "仍是事假，直属主管和部门负责人共同审批；不能误答病假医疗证明。",
+      "gold_policy": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "LEAVE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "超过2个工作日由直属主管和部门负责人共同审批"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "事假2个工作日谁审批？",
+          "expected_answer": "直属主管",
+          "gold_policy": [
+            {
+              "policy_id": "LEAVE",
+              "version": "2026",
+              "clause_id": "C02"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "LEAVE",
+              "version": "2026",
+              "clause_id": "C02",
+              "quote": "事假不超过2个工作日由直属主管审批"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "改成3个工作日呢？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-07",
+      "category": "follow_up",
+      "question": "换个问题，年终奖是几个月工资？",
+      "expected_answer": "切换问题，资料没有年终奖标准，拒绝编数值。",
+      "gold_policy": [],
+      "gold_evidence": [],
+      "expected_behavior": "refuse",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "深圳出差酒店上限是多少？",
+          "expected_answer": "550元/人/晚",
+          "gold_policy": [
+            {
+              "policy_id": "TRAVEL",
+              "version": "2026",
+              "clause_id": "C03"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "TRAVEL",
+              "version": "2026",
+              "clause_id": "C03",
+              "quote": "北京、上海、深圳住宿费上限为每人每晚550元"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "换个问题，年终奖是几个月工资？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-08",
+      "category": "follow_up",
+      "question": "可我手里的2025版写10个工作日，能按它办今年的新费用吗？",
+      "expected_answer": "坚持2026有效版7工作日，说明2025已失效。",
+      "gold_policy": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C07"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "差旅费用在出差结束后7个工作日内提交完整申请"
+        },
+        {
+          "policy_id": "EXPENSE",
+          "version": "2026",
+          "clause_id": "C07",
+          "quote": "本版自2026年1月1日生效，替代2025版"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "all"
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "当前差旅报销完整申请的提交期限是多少？",
+          "expected_answer": "出差结束后7工作日",
+          "gold_policy": [
+            {
+              "policy_id": "EXPENSE",
+              "version": "2026",
+              "clause_id": "C02"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "EXPENSE",
+              "version": "2026",
+              "clause_id": "C02",
+              "quote": "差旅费用在出差结束后7个工作日内提交完整申请"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "可我手里的2025版写10个工作日，能按它办今年的新费用吗？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-09",
+      "category": "follow_up",
+      "question": "后来又有600元培训费已实际报销，现在还剩多少年度额度？",
+      "expected_answer": "当年实际已报销共1100+600=1700元，1800−1700=100元，剩100元。计算剩余额度不等于批准下一笔费用。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-PROD",
+          "version": "2026",
+          "clause_id": "C02",
+          "quote": "个人剩余额度按1800元减去当年已报销培训费用计算"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": "production",
+        "training_reimbursed_yuan": 1100
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "我是生产员工，今年已报销培训1100元，上限1800元下还剩多少？",
+          "expected_answer": "700元",
+          "gold_policy": [
+            {
+              "policy_id": "TRAIN-PROD",
+              "version": "2026",
+              "clause_id": "C02"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "TRAIN-PROD",
+              "version": "2026",
+              "clause_id": "C02",
+              "quote": "个人剩余额度按1800元减去当年已报销培训费用计算"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "后来又有600元培训费已实际报销，现在还剩多少年度额度？"
+        }
+      ]
+    },
+    {
+      "id": "FOLLOW_UP-10",
+      "category": "follow_up",
+      "question": "我是行政部的，请按这个身份回答。",
+      "expected_answer": "职能部门规则：报名付费前直属主管书面批准、HR登记。",
+      "gold_policy": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03"
+        }
+      ],
+      "gold_evidence": [
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C01",
+          "quote": "本办法适用于人力资源、财务、行政等职能部门普通员工"
+        },
+        {
+          "policy_id": "TRAIN-FUNC",
+          "version": "2026",
+          "clause_id": "C03",
+          "quote": "员工在报名付费前取得直属主管的书面批准，并由人力资源部登记培训计划。"
+        }
+      ],
+      "expected_behavior": "answer",
+      "notes": "同一新会话按顺序发送两条用户消息，保留模型第一轮真实回答；评分最后一轮，不灌入标准答案。",
+      "as_of_date": "2026-10-01",
+      "user_context": {
+        "department": null
+      },
+      "forbidden_claims": [],
+      "turns": [
+        {
+          "role": "user",
+          "content": "培训报名之前要找谁批准？",
+          "expected_answer": "需先确认部门，生产与职能不同",
+          "gold_policy": [
+            {
+              "policy_id": "TRAIN-PROD",
+              "version": "2026",
+              "clause_id": "C03"
+            },
+            {
+              "policy_id": "TRAIN-FUNC",
+              "version": "2026",
+              "clause_id": "C03"
+            }
+          ],
+          "gold_evidence": [
+            {
+              "policy_id": "TRAIN-PROD",
+              "version": "2026",
+              "clause_id": "C03",
+              "quote": "须取得直属主管和生产部门负责人的书面批准"
+            },
+            {
+              "policy_id": "TRAIN-FUNC",
+              "version": "2026",
+              "clause_id": "C03",
+              "quote": "取得直属主管的书面批准，并由人力资源部登记培训计划"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": "我是行政部的，请按这个身份回答。"
+        }
+      ]
+    }
+  ],
+  "revision": {
+    "supersedes": "1.0.0",
+    "reason": "Pre-model full semantic audit and source-grounded errata",
+    "errata": "docs/evaluation_errata.md",
+    "no_model_results_used": true
+  }
+}

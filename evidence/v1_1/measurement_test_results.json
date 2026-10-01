@@ -1,0 +1,1 @@
+{"passed":4,"failed":0,"model_calls":0,"checks":["wrapped_failure_rejected","direct_failure_rejected","wrapped_next_turn_recovers","direct_next_turn_recovers"]}
