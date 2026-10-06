@@ -1,13 +1,13 @@
-# 制度查询助手
+# 企业制度问答 Agent
 ### Trusted Enterprise Policy Agent
 
-[在线 Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html) · [Evaluation Report](docs/evaluation_report.md) · [PRD](docs/PRD.md)
+[在线 Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html) · [Evaluation](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/evaluation.html) · [PRD](docs/PRD.md)
 
 面向企业内部制度查询的可信 RAG 问答 Agent，重点解决“答案虽然正确，但来源噪声高、模型容易进行无依据业务推断”的问题。
 
 ![项目封面](docs/assets/cover.svg)
 
-**30秒结论：**在同一模型、14份模拟制度和80条固定回归题上，引用准确率由 **59.06% → 99.22%（另1条待复核）**。V1.1完成整个80题序列，78题有效、2题治理失败、0次服务级中断。**核心答案准确率有退化，不能宣称所有指标提升。**
+**30秒成果：**引用准确率 **59.06% → 99.22%（另1条待复核）**；正确拒答 **6/11 → 11/11（Baseline另4例待复核）**。打开 Demo，亲自切换正常查询、来源噪声、无依据推断和失败恢复，查看真实历史回答与引用。模拟制度、单次实验；核心答案正确性有退化，完整边界见后文。
 
 作品入口：[PRD](docs/PRD.md) · [Evaluation Report](docs/evaluation_report.md) · [Bad Case Review](docs/bad_case_review.md) · [Reliability Postmortem](docs/v1_interruption_postmortem.md) · [3–5分钟 Demo](demo/demo_script.md)
 
@@ -82,9 +82,9 @@ V1首次正式回归 → governance_invalid_json → 容器退出 → 核查解�
 
 ## 8. Demo
 
-**[直接打开在线静态 Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html)**：GitHub Pages 托管已有截图与历史实验回放，不连接真实模型 API，也不部署 AnythingLLM 后端。
+**[打开 Recorded Interactive Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html)**：选择场景、切换 Baseline / V1.1 或并排对照，点击引用核对原片段和制度全文；在同一页查看来源治理、回答边界、失败恢复与 Evaluation。历史实验交互回放，不实时调用模型，不生成新答案。
 
-先看[3–5分钟讲解脚本](demo/demo_script.md)。也可以下载或clone后打开 `demo/index.html`，查看真实B/V1.1实验只读回放、展开来源。以下为实际运行截图：
+先看[3–5分钟讲解脚本](demo/demo_script.md)或[在线 Evaluation](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/evaluation.html)。也可以下载或clone后直接打开 `demo/index.html`，无需登录、API Key或开发环境。原始回放页、图表和以下实际运行截图继续保留：
 
 ![V1.1正常查询：真实已保存会话](demo/screenshots/02_normal_query.jpg)
 
