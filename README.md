@@ -7,7 +7,7 @@
 
 ![项目封面](docs/assets/cover.svg)
 
-**30秒成果：**引用准确率 **59.06% → 99.22%（另1条待复核）**；正确拒答 **6/11 → 11/11（Baseline另4例待复核）**。打开 Demo，亲自切换正常查询、来源噪声、无依据推断和失败恢复，查看真实历史回答与引用。模拟制度、单次实验；核心答案正确性有退化，完整边界见后文。
+**30秒成果：**引用准确率 **59.06% → 99.22%（另1条待复核）**；正确拒答 **6/11 → 11/11（Baseline另4例待复核）**。打开 Demo，在 Workspace 选择真实示例并发送，点击引用核对制度依据；Cases 保留来源噪声、无依据推断和失败恢复的版本对照。模拟制度、单次实验；核心答案正确性有退化，完整边界见后文。
 
 作品入口：[PRD](docs/PRD.md) · [Evaluation Report](docs/evaluation_report.md) · [Bad Case Review](docs/bad_case_review.md) · [Reliability Postmortem](docs/v1_interruption_postmortem.md) · [3–5分钟 Demo](demo/demo_script.md)
 
@@ -82,7 +82,7 @@ V1首次正式回归 → governance_invalid_json → 容器退出 → 核查解�
 
 ## 8. Demo
 
-**[打开 Recorded Interactive Demo](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html)**：选择场景、切换 Baseline / V1.1 或并排对照，点击引用核对原片段和制度全文；在同一页查看来源治理、回答边界、失败恢复与 Evaluation。历史实验交互回放，不实时调用模型，不生成新答案。
+**[打开 Guided Interactive Replay](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/index.html)**：默认进入 Workspace。选择已录制示例，填入问题并发送，查看原回答；点击 Citation 打开 Evidence，核对原片段和制度全文。Cases 提供 Baseline / V1.1 并排对照与失败恢复，Evaluation 查看正式评测，About 查看项目说明。历史实验交互回放，不实时调用模型；未匹配问题只提示选择真实示例，不生成新答案。
 
 先看[3–5分钟讲解脚本](demo/demo_script.md)或[在线 Evaluation](https://3219896344y-jpg.github.io/trusted-enterprise-policy-assistant/demo/evaluation.html)。也可以下载或clone后直接打开 `demo/index.html`，无需登录、API Key或开发环境。原始回放页、图表和以下实际运行截图继续保留：
 

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="企业制度问答 Agent：在历史真实回答中点击结论与Citation，当场核对制度原文、适用范围及回答边界。">
+  <title>Cases · 企业制度问答 Agent</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="workspace.css"><link rel="stylesheet" href="product.css">
+</head>
+<body class="workspace-page cases-page" data-page="cases">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">知</span><span>企业制度问答 Agent<small>让答案能够当场核对</small></span></a><nav aria-label="主导航"><a href="index.html">Workspace</a><a href="cases.html" class="active" aria-current="page">Cases</a><a href="evaluation.html">Evaluation</a><a href="about.html">About</a></nav><span class="header-version">V1.1 · 历史记录</span></header>
+  <main>
+    <div class="replay-identity"><span><i aria-hidden="true"></i> 案例核对与版本对照 <b>历史记录</b></span><span>模拟制度 / 演示数据 · 不实时调用模型，不生成新答案</span></div>
+    <section class="workspace" id="experience" aria-label="制度问答与证据工作区">
+      <aside class="scene-rail" aria-label="历史案例导航"><div class="rail-heading"><p>星桥制造</p><span>模拟企业制度库</span></div><p class="rail-label">CASE LIBRARY / 真实历史案例</p><div class="scene-list" id="scene-list"></div><div class="rail-bottom"><div class="rail-data"><strong>14</strong><span>份模拟制度<br>6类业务场景</span></div><p>差旅 · 报销 · 请假<br>培训 · 采购 · 入场</p><a href="https://github.com/3219896344y-jpg/trusted-enterprise-policy-assistant/blob/main/docs/PRD.md" target="_blank" rel="noopener noreferrer">产品方案 ↗</a><a class="rail-about-button" href="about.html">项目与证据档案 ↗</a></div></aside>
+      <section class="replay-center" aria-labelledby="scene-title"><div class="replay-header"><div><span class="case-label" id="case-label">DIRECT_ANSWER-01 · 原始历史输入</span><h1 id="scene-title">正常制度查询</h1></div><span class="read-only-badge">只读回放</span></div><div class="workspace-toolbar"><div class="mode-bar" id="mode-bar" role="group" aria-label="回放版本"><button type="button" data-mode="v1" class="active" aria-pressed="true">V1.1</button><button type="button" data-mode="baseline" aria-pressed="false">Baseline B</button><button type="button" data-mode="compare" aria-pressed="false">并排对照</button></div><button type="button" class="evidence-trigger" data-toggle-evidence>▤ 查看依据 <span id="source-counter"></span></button></div><div id="compare-focus" class="compare-focus" hidden><span>聚焦差异</span><button type="button" data-focus="sources" class="active">来源差异</button><button type="button" data-focus="boundary">回答边界</button><small>只聚焦真实记录，不改写回答</small></div><div class="replay-content" id="replay-content" aria-live="polite"><p class="loading-state">正在读取静态历史记录…</p></div></section>
+      <aside class="evidence-panel" id="evidence-panel" aria-label="Citation与制度依据" tabindex="-1"><div class="evidence-header"><div><span class="eyebrow">CITATION → EVIDENCE</span><h2>核对回答依据</h2></div><button class="drawer-close" type="button" data-close-evidence aria-label="关闭证据面板">×</button></div><div class="evidence-content" id="evidence-content"></div></aside>
+    </section>
+    <div class="drawer-scrim" data-close-evidence hidden></div>
+
+  </main>
+  <footer class="site-footer"><span>企业制度问答 Agent · AnythingLLM v1.16.2</span><span>Historical Replay · Synthetic / Demo Data</span><a href="demo_script.md">3–5分钟讲解脚本</a></footer>
+  <script src="replay_data.js"></script><script src="workspace_data.js"></script><script src="workspace.js"></script>
+</body>
+</html>
+
+
